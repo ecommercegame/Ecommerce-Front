@@ -12,6 +12,7 @@ import { DestaqueComponent } from './components/destaque/destaque.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
     DestaqueComponent,
     HomeComponent,
     LoginComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,
