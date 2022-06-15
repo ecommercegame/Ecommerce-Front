@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { FormsModule } from '@angular/forms';
+import { HeaderUsuarioComponent } from './components/header-usuario/header-usuario.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     LoginComponent,
     CadastrarComponent,
-    PedidosComponent
+    PedidosComponent,
+    HeaderUsuarioComponent
   ],
   imports: [
     BrowserModule,
