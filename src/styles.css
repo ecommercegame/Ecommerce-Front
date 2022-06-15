@@ -64,6 +64,9 @@
     background: #010127;
 }
 
+.dropdown-toggle{
+    background: #010127;
+}
 .dropdown-header{
     align-items: left;
     margin-left:  -180px;
@@ -114,4 +117,16 @@ footer{
 .p-1{
     width: 40px;
     height: 40px;
+}
+
+
+/*Mobile*/
+
+@media(max-width: 1301px ){
+    .card{
+        width: 100%;
+    }
+    card-body{
+        width: 100%;
+    }
 }
