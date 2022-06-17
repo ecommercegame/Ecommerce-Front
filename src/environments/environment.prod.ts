@@ -3,6 +3,7 @@ export const environment = {
   token: '',
   nome: '',
   idUsuario: 0,
-  cpfUsuario: ''
+  cpfUsuario: '',
+  //TENTATIVA DE PUXAR O EMAIL DO USUARIO usuario:''
 
 };
