@@ -1,2 +1,3 @@
-<app-home></app-home>
 
+<app-home-logado *ngIf="auth.logado()"></app-home-logado>
+<router-outlet></router-outlet>
