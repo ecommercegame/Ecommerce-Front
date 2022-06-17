@@ -19,6 +19,8 @@ import { HeaderUsuarioComponent } from './components/header-usuario/header-usuar
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LogadoComponent } from './logado/logado.component';
 import { HomeLogadoComponent } from './logado/home-logado/home-logado.component';
+import { SobreComponent } from './components/sobre/sobre.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { HomeLogadoComponent } from './logado/home-logado/home-logado.component'
     PedidosComponent,
     HeaderUsuarioComponent,
     LogadoComponent,
-    HomeLogadoComponent
+    HomeLogadoComponent,
+    SobreComponent,
   ],
   imports: [
     BrowserModule,
