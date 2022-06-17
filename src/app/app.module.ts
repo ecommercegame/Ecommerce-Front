@@ -16,6 +16,9 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderUsuarioComponent } from './components/header-usuario/header-usuario.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { LogadoComponent } from './logado/logado.component';
+import { HomeLogadoComponent } from './logado/home-logado/home-logado.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { HeaderUsuarioComponent } from './components/header-usuario/header-usuar
     LoginComponent,
     CadastrarComponent,
     PedidosComponent,
-    HeaderUsuarioComponent
+    HeaderUsuarioComponent,
+    LogadoComponent,
+    HomeLogadoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ import { HeaderUsuarioComponent } from './components/header-usuario/header-usuar
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide:  LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

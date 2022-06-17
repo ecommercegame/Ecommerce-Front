@@ -32,17 +32,17 @@ export class LoginComponent implements OnInit {
       environment.idUsuario = this.userLogin.idUsuario
       environment.cpfUsuario = this.userLogin.cpfUsuario
 
-      // console.log(environment.token)
-      // console.log(environment.nome)
-      // console.log(environment.idUsuario)
-      // console.log(environment.cpfUsuario)
+      console.log(environment.token)
+      console.log(environment.nome)
+      console.log(environment.idUsuario)
+      console.log(environment.cpfUsuario)
 
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home-logado'])
 
     },
     erro => {
       if(erro.status == 500){
-        alert('Usuário ou senha incorretos !')
+        alert('Usuário ou senha incorretos!')
         
       }
     }
