@@ -14,10 +14,7 @@ export class HeaderUsuarioComponent implements OnInit {
     private router:Router
   ) { }
 
-  ngOnInit(){
-    if(environment.token== ''){      
-      this.router.navigate(['/home'])
-    }
+  ngOnInit(){   
   }
 
   sair(){
