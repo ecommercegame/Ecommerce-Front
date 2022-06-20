@@ -20,6 +20,13 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LogadoComponent } from './logado/logado.component';
 import { HomeLogadoComponent } from './logado/home-logado/home-logado.component';
 import { SobreComponent } from './components/sobre/sobre.component';
+import { PerfilUsuarioComponent } from './components/header-usuario/perfil-usuario/perfil-usuario.component';
+import { JogosAppComponent } from './jogos-app/jogos-app.component';
+import { ProdutosListaComponent } from './jogos-app/produtos-lista/produtos-lista.component';
+import { ProdutosItemComponent } from './jogos-app/produtos-lista/produtos-item/produtos-item.component';
+import { TodosProdutosComponent } from './jogos-app/todos-produtos/todos-produtos.component';
+import { ProdutosComponent } from './produtos/produtos.component';
+
 
 
 @NgModule({
@@ -39,6 +46,12 @@ import { SobreComponent } from './components/sobre/sobre.component';
     LogadoComponent,
     HomeLogadoComponent,
     SobreComponent,
+    PerfilUsuarioComponent,
+    JogosAppComponent,
+    ProdutosListaComponent,
+    ProdutosItemComponent,
+    TodosProdutosComponent,
+    ProdutosComponent,
   ],
   imports: [
     BrowserModule,

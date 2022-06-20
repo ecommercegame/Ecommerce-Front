@@ -31,12 +31,14 @@ export class LoginComponent implements OnInit {
       environment.nome = this.userLogin.nome
       environment.idUsuario = this.userLogin.idUsuario
       environment.cpfUsuario = this.userLogin.cpfUsuario
+      environment.usuario = this.userLogin.usuario
 
       console.log(environment.token)
       console.log(environment.nome)
       console.log(environment.idUsuario)
       console.log(environment.cpfUsuario)
-
+      console.log(environment.usuario)
+      
       this.router.navigate(['/home-logado'])
 
     },
