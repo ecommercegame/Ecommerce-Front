@@ -1,0 +1,24 @@
+<app-header-usuario></app-header-usuario>
+<div class="container d-flex" style="margin: 10%;">
+  <div class="container-fluid align-itens-center">
+    <form>
+      <h2 style="align-items: center; margin: 0%;">Perfil do Usuário</h2>
+      <div class="form-group">
+        <label for="exampleInputEmail1">E-mail</label>
+        <input [(ngModel)] = "usuario" name="usuario" type="text" class="form-control" id="email" >
+      </div>
+      <div class="form-group">
+          <label for="nome">Nome</label>
+          <input [(ngModel)] = "nome" name="nome" type="name" class="form-control" id="nome" >
+      </div>
+      <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" class="form-control" id="cpf" disabled placeholder="{{cpf}}">
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" (click)="atualizar()">Salvar</button>
+      <button type="button" class="btn btn-danger" (click)="deleteById(user.idUsuario)">Deletar conta</button>
+    </form>
+  </div>    
+</div>
+<app-footer></app-footer>
