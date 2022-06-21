@@ -10,11 +10,11 @@ import { ProdutosService } from 'src/app/service/produtos.service';
 export class ProdutosListaComponent implements OnInit {
 
   produtos:any;
-  _produtos: Produtos[]
+  //_produtos: Produtos[]
   produtosService:ProdutosService;
 
 
-  constructor(produtosService:ProdutosService) { 
+  constructor(produtosService:ProdutosService) {
     this.produtosService = produtosService
   }
 
@@ -22,7 +22,7 @@ export class ProdutosListaComponent implements OnInit {
 
     this.produtos = this.produtosService.getAllProdutos().subscribe((data => {
       this.produtos = data;
-      console.log(data)
+      //console.log(data)
       console.log(this.produtos)
     }))
   }
