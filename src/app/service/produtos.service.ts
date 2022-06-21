@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import { Produtos } from '../model/Produtos';
 
@@ -10,15 +11,12 @@ import { Produtos } from '../model/Produtos';
 export class ProdutosService {
 
 
-  private url = 'https://localhost:8080/produtos';
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  }
-
   constructor(private http:HttpClient) { }
 
-
+ 
+  deletarProduto(id: number): Observable<Produtos>{
+    return this.http.delete<Produtos>(`${environment.apiUrl}/produtos/${id}`)
+  }
 
   getAllProdutos():Observable<Produtos[]>{
     return this.http.get<Produtos[]>('http://localhost:8080/produtos')
@@ -26,6 +24,8 @@ export class ProdutosService {
   }
 
   postProdutos(produtos:Produtos):Observable<Produtos>{
-    return this.http.post<Produtos>('http://localhost:8080/produtos/cadastrar',produtos)
+    return this.http.post<Produtos>('http://localhost:8080/produtos/cadastrar', produtos)
   }
+
+
 }

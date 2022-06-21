@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
-import { Produtos } from '../model/Produtos';
+import { first } from 'rxjs/operators';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutosService } from '../service/produtos.service';
+import { Produtos } from '../model/Produtos';
 
 @Component({
   selector: 'app-produtos',
@@ -10,25 +9,51 @@ import { ProdutosService } from '../service/produtos.service';
   styleUrls: ['./produtos.component.css']
 })
 export class ProdutosComponent implements OnInit {
-  produtos:Produtos = new Produtos
+  public produtos: Produtos[];  
+  produto = new Produtos();
+  produtoSalvo = new Produtos();
+  
+  @ViewChild('cadastrar') cadastrar: any;
+  @ViewChild('consultar') consultar: any;
+  @ViewChild('atualizar') atualizar: any;
+  @ViewChild('deletar') deletar: any;
 
-  constructor(
-    private router: Router,
-    private produtosService:ProdutosService    
-  ) { }
+  constructor(private produtosService: ProdutosService) { }
 
-  ngOnInit() {
-    if(environment.token== ''){      
-      this.router.navigate(['/login']),
-      this.router.navigate(['/produtos'])
-    }
+  refresh(): void{
+    window.location.reload();
   }
 
-  cadastrarProduto(){
-    this.produtosService.postProdutos(this.produtos).subscribe((resp: Produtos)=>{
-      this.produtos = resp
-      alert('Produto cadastrado com sucesso!')
-      this.produtos = new Produtos()
+
+   ngOnInit(): void {
+    this.produtosService.getAllProdutos().subscribe((resp: Produtos[])=>{
+      this.produtos=resp;
     })
+  }
+
+  cadastrarProduto(): void {
+    this.produtosService.postProdutos(this.produto).subscribe((resp: Produtos) => {
+      this.produto = resp
+      alert('Usuário cadastrado com sucesso !!')
+    })
+  }
+
+  delete():void{}
+ 
+  limparFormCadastrar(): void {
+    this.cadastrar.nativeElement.value = '';
+  }
+
+  limparFormConsultar(): void {
+    this.consultar.nativeElement.value = '';
+  }
+
+  limparFormAtualizar(): void {
+    this.atualizar.nativeElement.value = '';
+  }
+
+  
+  limparFormDeletar(): void {
+    this.deletar.nativeElement.value = '';
   }
 }
