@@ -26,6 +26,7 @@ import { ProdutosListaComponent } from './jogos-app/produtos-lista/produtos-list
 import { ProdutosItemComponent } from './jogos-app/produtos-lista/produtos-item/produtos-item.component';
 import { TodosProdutosComponent } from './jogos-app/todos-produtos/todos-produtos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 
@@ -52,6 +53,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
     ProdutosItemComponent,
     TodosProdutosComponent,
     ProdutosComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,
