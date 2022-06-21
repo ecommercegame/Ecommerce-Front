@@ -32,8 +32,8 @@
               Jogos
               </button>
               <div class="dropdown-menu" style="background: white;" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" routerLink="/jogos-app">Todos</a>
-                  <a class="dropdown-item" href="#">Ação</a>
+                  <a class="dropdown-item" routerLink="/jogos-app-logado">Todos</a>
+                  <a class="dropdown-item" routerLink="">Ação</a>
                   <a class="dropdown-item" href="#">Aventura</a>
                   <a class="dropdown-item" href="#">Corrida</a>
               </div>
@@ -92,13 +92,8 @@
         <div class="modal-body">
           <div class="form-group">
               <label for="titulo">E-mail</label>
-              <input type="text" class="form-control" id="email" placeholder="Informe seu e-mail" required="required">
-          </div>
-          <!-- TENTATIVA DE PUXAR O EMAIL DO USUARIO
-          <div class="form-group">
-              <label for="staticEmail">E-mail</label>
-              <input type="text" class="form-control" id="staticEmail" placeholder="Informe seu e-mail" required="required" value="{{usuario}}">
-          </div>-->
+              <input [(ngModel)]="usuario" name="usuario" type="text" class="form-control" id="email" placeholder="Informe seu e-mail" required="required">
+          </div>        
 
           <div class="form-group">
             <label for="texto">Assunto </label>

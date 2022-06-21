@@ -1,14 +1,14 @@
-<div class="card shadow-sm">
-    <img class="bd-placeholder-img card-img-top" width="100%"   src='{{ "assets/jogos/" + produtos.imagem + ".png" }}'>
+<div class="card shadow-sm container-fluid d-flex" style="margin-top: 5%; height: 100%;">
+    <img class="bd-placeholder-img card-img-top" width="100%"   src='{{ "../../../../../../assets/jogos/"+produtos.imagem }}'>
 
     <div class="card-body">
-        <p class="card-text">{{produtos.nomeProduto}}</p>
-        <p class="card-text">{{produtos.descricaoProduto}}</p>
-        <p class="card-text">{{produtos.categorias}}</p>
-        <p class="card-text">{{produtos.estoque}}</p>
-        <p class="card-text"> {{produtos.valorProduto | currency:'BRL'}} </p>
-        <div class="bnt-group">
-            <button type="button" class="btn btn-sn btn-primary">Comprar</button>
+        <p class="card-text" style="text-align: center;"> <b>{{produtos.nomeProduto}}</b> </p>
+        <p class="card-text" style="text-align: justify;">{{produtos.descricaoProduto}}</p>
+        <p class="card-text" style="font-size: 9pt; color: #f76201;">{{"Categoria: "+produtos.categorias}}</p>
+        <p class="card-text" style="font-size: 9pt; color: #f76201;">{{"Em estoque: "+ produtos.estoque}}</p>
+        <p class="card-text" style="text-align: center;"> <b> {{produtos.valorProduto | currency:'BRL'}} </b></p>
+        <div class="bnt-group d-flex">
+            <button type="button" class="btn btn-sn btn-primary" style="background: #010127; border: 0; width: 100%; margin: 0; padding: 0;">Comprar</button>
         </div>
 
     </div>

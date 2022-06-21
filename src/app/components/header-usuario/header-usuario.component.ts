@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class HeaderUsuarioComponent implements OnInit {
 
   nome=environment.nome
-  //TENTATIVA DE PUXAR O EMAIL DO USUARIO usuario=environment.usuario
+  usuario= environment.usuario
 
   constructor(
     private router:Router
