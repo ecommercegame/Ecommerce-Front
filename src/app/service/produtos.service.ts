@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { Produtos } from '../model/Produtos';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Produtos } from '../model/Produtos';
 })
 export class ProdutosService {
 
-  
+
   private url = 'https://localhost:8080/produtos';
 
   httpOptions = {
@@ -21,6 +22,7 @@ export class ProdutosService {
 
   getAllProdutos():Observable<Produtos[]>{
     return this.http.get<Produtos[]>('http://localhost:8080/produtos')
+
   }
 
   postProdutos(produtos:Produtos):Observable<Produtos>{
