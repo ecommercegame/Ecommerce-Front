@@ -86,6 +86,10 @@
     border: 0;
 }
 
+.btn:hover{
+    transform: scale(1.2);
+}
+
 .form-inline{
    margin-left: 10px;
 }
@@ -106,6 +110,9 @@ h2{
 }
 h5{
    color: #e63909;
+}
+h3{
+    color:#010127
 }
 
 /*Footer*/
