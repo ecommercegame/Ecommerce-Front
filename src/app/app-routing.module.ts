@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'jogos-app', component: JogosAppComponent},
   {path: 'jogos-app-logado', component: JogosAppLogadoComponent},
   {path: 'blog', component: BlogComponent},
-  {path: 'pedidos', component: PedidosComponent}
+  {path: 'pedidos', component: PedidosComponent} //adicionado rota pedidos
 
 ];
 
