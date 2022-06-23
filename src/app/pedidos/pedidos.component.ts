@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { Pedidos } from '../model/Pedidos';
+import { Produtos } from '../model/Produtos';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  listaProdutos: Produtos[]
+  pedidos: Pedidos = new Pedidos
+  valorTotal = this.pedidos.valorTotal
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router
+  ) { }
+
+  ngOnInit(){
+
+    if(environment.token = ''){
+      this.router.navigate(['/entrar'])
+    }
+
   }
 
 }

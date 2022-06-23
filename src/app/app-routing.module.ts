@@ -10,6 +10,7 @@ import { HomeLogadoComponent } from './logado/home-logado/home-logado.component'
 import { JogosAppLogadoComponent } from './logado/jogos-app-logado/jogos-app-logado.component';
 import { LogadoComponent } from './logado/logado.component';
 import { LoginComponent } from './login/login.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'jogos-cadastro', component: ProdutosComponent },
   {path: 'jogos-app', component: JogosAppComponent},
   {path: 'jogos-app-logado', component: JogosAppLogadoComponent},
-  {path: 'blog', component: BlogComponent}
+  {path: 'blog', component: BlogComponent},
+  {path: 'pedidos', component: PedidosComponent}
 
 ];
 
