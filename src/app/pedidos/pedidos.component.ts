@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Pedidos } from '../model/Pedidos';
 import { Produtos } from '../model/Produtos';
+import { ProdutosService } from '../service/produtos.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -16,7 +17,8 @@ export class PedidosComponent implements OnInit {
   valorTotal = this.pedidos.valorTotal
 
   constructor(
-    private router: Router
+    private router: Router,
+    private produtoService: ProdutosService
   ) { }
 
   ngOnInit(){
