@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import Swal from 'sweetalert2';
 import { UserLogin } from '../model/UserLogin';
 import { AuthService } from '../service/auth.service';
 
@@ -43,9 +44,11 @@ export class LoginComponent implements OnInit {
 
     },
     erro => {
-      if(erro.status == 500){
-        alert('Usuário ou senha incorretos!')
-        
+      if(erro.status == 401){
+        Swal.fire({
+          title: 'Usuário ou senha incorretos!',
+          icon: 'error'
+        })
       }
     }
     )

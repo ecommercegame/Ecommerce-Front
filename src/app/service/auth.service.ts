@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -16,6 +16,16 @@ export class AuthService {
     private http: HttpClient
 
   ) { }
+
+  token = {
+    headers: new HttpHeaders().set("Authorization", environment.token),
+  };
+
+  refreshToken(){
+    this.token={
+      headers: new HttpHeaders().set("Authorization", environment.token),
+    };
+}
 
   buscarTodos(): Observable<UserLogin[]>{
     return this.http.get<UserLogin[]>(this.userUrl)
@@ -36,11 +46,18 @@ export class AuthService {
     return this.http.post<User>('http://localhost:8080/usuarios/cadastrar', user)
   } 
 
-  atualizar(user: UserLogin): Observable<UserLogin> {
-    return this.http.put<UserLogin>(`${this.putUrl}/${user.idUsuario}`, user)
+  atualizar(user: User): Observable<User> {
+    return this.http.put<User>('http://localhost:8080/usuarios/atualizar/', user, this.token)
   }
  
+  getByIdUsuario(id: number): Observable<User>{
+    return this.http.get<User>(`http://localhost:8080/usuarios/${id}`, this.token)
+  }
   
+  deleteById(id: number): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/usuarios/${id}`)
+  }
+
   
   logado(){
     let ok: boolean = false
@@ -52,9 +69,23 @@ export class AuthService {
     return ok
   }
 
-  deleteById(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.userUrl}/${id}`)
+
+  userId() {
+    let id: number = 0
+    if (environment.idUsuario != 0){
+      id = environment.idUsuario
+    }
+    return id
   }
 
+  // admin(){
+  //   let ok: boolean = false
+  //   if(environment.tipo == 'adm'){
+  //     ok = true
+  //   }
+  //   return ok
+  // }
+
+ 
 }
 

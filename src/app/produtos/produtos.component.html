@@ -1,41 +1,85 @@
 <app-header-usuario></app-header-usuario>
-<div fxLayout="row" fxLayoutAlign="start center" id="cadastrar" style="padding-top: 40px; padding-left: 2%; padding-right: 2%;" >
-    <form #cadastrar (ngSubmit)="cadastrarProduto()" fxLayout="row" fxLayoutAlign="space-around center" style=" padding-top: 40px; padding-left:10%; padding-right: 10%;">
+<div   class="row  container-fluid d-flex justify-content-center">
+    <form  fxLayout="row" fxLayoutAlign="space-around center" style=" padding-top: 40px; padding-left:10%; padding-right: 10%;">
         <div fxLayout="row" fxLayoutAlign="space-around center"  style="margin-left: auto; margin-left: auto;">
             <div>              
-                <input  [(ngModel)]="produto.idProduto" type="number"  class="form-control" name="idProduto" id="idProduto" value="0" placeholder="0" disabled>
+                <input  [(ngModel)]="produtos.idProduto" type="number"  class="form-control" name="idProduto" id="idProduto" value="0" placeholder="0" disabled>
             </div>
             <div  class="form-group" fxLayout="row" fxLayoutAlign="center center">
                 <label for="nome">Nome</label>
-                <input [(ngModel)]="produto.nomeProduto"  type="text" class="form-control" id="nome" placeholder="Nome do produto">
+                <input [(ngModel)]="produtos.nomeProduto"  type="text" class="form-control" id="nome" placeholder="Nome do produto">
             </div>
             <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
                 <label for="descricao">Descrição</label>
-                <input [(ngModel)]="produto.descricaoProduto" type="text" class="form-control" id="descricao" placeholder="Descrição do produto">
+                <input [(ngModel)]="produtos.descricaoProduto" type="text" class="form-control" id="descricao" placeholder="Descrição do produto">
             </div>
             <div class="form-group">
                 <label for="valor">Valor do Produto</label>
-                <input [(ngModel)]="produto.valorProduto" min="0" type="number" class="form-control" id="valor" placeholder="Valor unitário">
+                <input [(ngModel)]="produtos.valorProduto" min="0" type="number" class="form-control" id="valor" placeholder="Valor unitário">
             </div>
             <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
                 <label for="estoque">Estoque</label>
-                <input [(ngModel)]="produto.estoque" min="0" type="number" class="form-control" id="estoque" placeholder="Quantidade em estoque">
+                <input [(ngModel)]="produtos.estoque" min="0" type="number" class="form-control" id="estoque" placeholder="Quantidade em estoque">
             </div>
             <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;"fxLayout="row" fxLayoutAlign="center center">
                 <label for="categoria">Categoria</label>
-                <input [(ngModel)]="produto.categorias" type="text" id="categorias" class="form-control" placeholder="Ex: Ação">
+                <input [(ngModel)]="produtos.categorias" type="text" id="categorias" class="form-control" placeholder="Ex: Ação">
                 
             </div>
             <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
                 <label for="imagem">Imagem</label>
-                <input [(ngModel)]="produto.imagem" type="text" class="form-control" id="imagem" placeholder="Endereço da imagem">
+                <input [(ngModel)]="produtos.imagem" type="text" class="form-control" id="imagem" placeholder="Endereço da imagem">
             </div>
-            <button type="submit" class="btn btn-primary" style="background: #010127; margin-top: 20px; border: #e63909;" (click)="refresh()">Cadastrar produto</button>
-            <button type="reset" class="btn btn-primary" style="background: #e63909; margin-left: 20px; margin-top: 20px; border: #e63909;" (click)="limparFormCadastrar()">Limpar preenchimento</button>
+            <div class="container d-flex">
+                <button type="submit" class="btn btn-primary" style="background: #010127; margin-top: 20px; border: #e63909;"(ngSubmit)="cadastrarProduto()">Cadastrar produto</button>
+                <button type="reset" class="btn btn-primary" style="background: #e63909; margin-left: 20px; margin-top: 20px; border: #e63909;">Limpar preenchimento</button>
+            </div>
+           
         </div>
 
-
     </form>
+</div>
+<hr>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h2 class="text-center">Produtos Cadastrados</h2>
+    </div>
+  </div>
+
+
+  <div class="row mt-3 mb-5 d-flex justify-content-center">
+    <div class="col-md-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome Produto</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Estoque</th>
+            <th scope="col">Valor</th>
+            <th scope="col" class="text-right">Editar</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let produto of listaProdutos">
+            <th>{{produto.idProduto}}</th>
+            <td>{{produto.nomeProduto}}</td>
+            <td>{{produto.categorias}}</td>
+            <td>{{produto.estoque}}</td>
+            <td>{{produto.valorProduto}}</td>
+            <td class="d-flex  justify-content-end">
+              <a href="" [routerLink]="['/produto-edit', produto.idProduto]"><i class="fa  fa-pencil-square  text-dark" aria-hidden="true"><img style="width: 25px; margin-right: 2px;" src="../../assets/Images/editar.png" alt=""></i></a>
+              <a [routerLink]="['/produto-delete', produto.idProduto]" class="ml-4"><i class="fa  fa-trash  text-dark" aria-hidden="true"><img style="width: 25px;" src="../../assets/Images/deletar.png" alt=""></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>
