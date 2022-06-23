@@ -24,7 +24,7 @@ export class ProdutosService {
   }
 
   //adicionando o método Get por id do produto
-  getByIdProdutos(id: number): Observable<Produtos>{
+  getProdutoById(id: number): Observable<Produtos>{
     return this.http.get<Produtos>(`http://localhost:8080/produtos/${id}`)
   }
 
