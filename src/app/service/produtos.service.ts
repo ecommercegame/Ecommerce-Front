@@ -28,6 +28,7 @@ export class ProdutosService {
 
   }
 
+<<<<<<< HEAD
   getProdutoById(id: number): Observable<Produtos> {
     return this.http.get<Produtos>(`http://localhost:8080/produtos/${id}`)
   }
@@ -40,6 +41,13 @@ export class ProdutosService {
     return this.http.get<Produtos[]>(`http://localhost:8080/produtos/categorias/${categorias}`)
   }
 
+=======
+  //adicionando o método Get por id do produto
+  getProdutoById(id: number): Observable<Produtos>{
+    return this.http.get<Produtos>(`http://localhost:8080/produtos/${id}`)
+  }
+
+>>>>>>> 556a4bf5848a43f0da0357420bf951e9c05ef299
   postProdutos(produtos:Produtos):Observable<Produtos>{
     return this.http.post<Produtos>('http://localhost:8080/produtos/cadastrar', produtos, this.token)
   }
