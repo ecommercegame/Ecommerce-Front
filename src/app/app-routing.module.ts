@@ -5,6 +5,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { ComponentsComponent } from './components/components.component';
 import { PerfilUsuarioComponent } from './components/header-usuario/perfil-usuario/perfil-usuario.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { JogosAppComponent } from './jogos-app/jogos-app.component';
 import { HomeLogadoComponent } from './logado/home-logado/home-logado.component';
 import { JogosAppLogadoComponent } from './logado/jogos-app-logado/jogos-app-logado.component';
@@ -26,8 +27,8 @@ const routes: Routes = [
   {path: 'jogos-app', component: JogosAppComponent},
   {path: 'jogos-app-logado', component: JogosAppLogadoComponent},
   {path: 'blog', component: BlogComponent},
-  {path: 'pedidos', component: PedidosComponent} //adicionado rota pedidos
-
+  {path: 'pedidos', component: PedidosComponent}, //adicionado rota pedidos
+  {path: 'produto-delete', component: ProdutoDeleteComponent}
 ];
 
 @NgModule({
