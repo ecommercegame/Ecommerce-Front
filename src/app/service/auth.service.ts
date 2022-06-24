@@ -54,8 +54,8 @@ export class AuthService {
     return this.http.get<User>(`http://localhost:8080/usuarios/${id}`, this.token)
   }
   
-  deleteById(id: number): Observable<any>{
-    return this.http.delete<any>(`http://localhost:8080/usuarios/${id}`)
+  deletarUsuario(id: number): Observable<User>{
+    return this.http.delete<User>(`http://localhost:8080/usuarios/${id}`, this.token)
   }
 
   

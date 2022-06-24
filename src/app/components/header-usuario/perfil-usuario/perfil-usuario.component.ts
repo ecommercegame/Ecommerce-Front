@@ -1,6 +1,7 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
 import { User } from 'src/app/model/User';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
@@ -16,14 +17,16 @@ export class PerfilUsuarioComponent implements OnInit {
    confirmarSenha: string
    _user: User[] =[]
    filteredUsuarios: User[]=[]
+   erro: any;
+   index: number;
 
    nome = environment.nome
    email = environment.usuario
    cpf = environment.cpfUsuario
 
    usuario: User = new User()
-   idUsuario: number
-   
+   //idUsuario: number
+    
   
    constructor(
      private router: Router,
@@ -40,16 +43,16 @@ export class PerfilUsuarioComponent implements OnInit {
        )
        this.router.navigate(['/login']);
      }
-     this.idUsuario = this.route.snapshot.params['id']
-     this.findUserById()
+    // this.idUsuario = this.route.snapshot.params['id']
+    //  this.findUserById()
    }
  
-   findUserById() {
-     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: User)=>{
-       this.usuario = resp
-       this.usuario.senha = ''
-     })
-   }
+  //  findUserById() {
+  //    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: User)=>{
+  //      this.usuario = resp
+  //      this.usuario.senha = ''
+  //    })
+  //  }
   
  
    atualizar() {
@@ -62,14 +65,20 @@ export class PerfilUsuarioComponent implements OnInit {
        this.router.navigate(['/home-logado'])
      })
    }
- 
-   deleteById(idUsuario: number): void { 
-     this.authService.deleteById(idUsuario).subscribe({
-         next: () => { 
-             alert('Perfil deletado');           
-         },
-         error: err => console.log('Error', err)
-     })
-   }
- 
+  
+
+  delete(): void{
+    this.authService.deletarUsuario(this.index).pipe(first()).subscribe({next:()=>{
+      alert('Conta deletada com sucesso!')
+    },
+      error:(error)=>{
+        this.erro = error;
+        console.log(this.erro)
+      }
+    })
+  }
+
+  pegarId(id: number){
+    this.index = id;
+  }
 }
