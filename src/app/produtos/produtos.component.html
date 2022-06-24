@@ -22,10 +22,18 @@
                 <input [(ngModel)]="produtos.estoque" min="0" type="number" class="form-control" id="estoque" placeholder="Quantidade em estoque">
             </div>
             <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;"fxLayout="row" fxLayoutAlign="center center">
-                <label for="categoria">Categoria</label>
-                <input [(ngModel)]="produtos.categorias" type="text" id="categorias" class="form-control" placeholder="Ex: Ação">
-                
-            </div>
+              <label for="categoria">Categorias:</label>
+              <select class="form-control" name="categorias" id="categorias" (change)="categoriaProd($event)">
+                <option value="ALL">Selecione uma categoria:</option>
+                <option value="ACAO">Ação</option>
+                <option value="AVENTURA">Aventura</option>
+                <option value="ESPORTE">Esporte</option>
+                <option value="CORRIDA">Corrida</option>
+                <option value="RPG">Rpg</option>
+                <option value="TERROR">Terror</option>
+                <option value="BATTLEROYALE">Battle Royale</option>
+              </select>
+          </div>
             <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
                 <label for="imagem">Imagem</label>
                 <input [(ngModel)]="produtos.imagem" type="text" class="form-control" id="imagem" placeholder="Endereço da imagem">
@@ -72,14 +80,35 @@
             <td>{{produto.estoque}}</td>
             <td>{{produto.valorProduto}}</td>
             <td class="d-flex  justify-content-end">
-              <a href="" [routerLink]="['/produto-edit', produto.idProduto]"><i class="fa  fa-pencil-square  text-dark" aria-hidden="true"><img style="width: 25px; margin-right: 2px;" src="../../assets/Images/editar.png" alt=""></i></a>
-              <a [routerLink]="['/produto-delete', produto.idProduto]" class="ml-4"><i class="fa  fa-trash  text-dark" aria-hidden="true"><img style="width: 25px;" src="../../assets/Images/deletar.png" alt=""></i></a>
+              <a href="" [routerLink]="['/produto-edit', produto.idProduto]"><i class="fa  fa-pencil-square  text-dark" aria-hidden="true"><img style="width: 25px; margin-right: 4px;" src="../../assets/Images/editar.png" alt=""></i></a>
+              <a (click)="pegarId(produto.idProduto)" class="mx-2" href="" data-bs-toggle="modal" data-bs-target="#deletarProduto">
+                <img style="width: 25px;" src="../../assets/Images/deletar.png" alt="ícone Deletar">
+              </a>
             </td>
           </tr>
+          <div class="modal fade" id="deletarProduto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Deletar Produto</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Tem certeza que deseja deletar este produto?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="reset" class="btn pStyleDark " data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn buttonStyle deleteButton" (click)="delete() " data-bs-dismiss="modal">Deletar</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+
 
 <app-footer></app-footer>

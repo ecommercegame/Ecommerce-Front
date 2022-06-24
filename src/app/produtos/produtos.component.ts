@@ -14,7 +14,10 @@ import Swal from 'sweetalert2';
 export class ProdutosComponent implements OnInit {
   produtos: Produtos = new Produtos();
   listaProdutos: Produtos[];
-  // categoria: string;
+  categoria: string;
+  idProduto: number;
+  erro: any;
+  index: number;
 
   constructor(
     private produtosService: ProdutosService,
@@ -41,14 +44,14 @@ export class ProdutosComponent implements OnInit {
     });
   }
 
-  // categoriaProd(event: any){
-  //   this.categoria = event.target.value
-  // }
+  categoriaProd(event: any){
+    this.categoria = event.target.value
+  }
 
 
 
   cadastrarProduto(): void {
-  //  this.produtos.categorias = this.categoria
+   this.produtos.categorias = this.categoria
 
    this.produtosService.postProdutos(this.produtos).subscribe((resp: Produtos)=>{
     console.log(resp)
@@ -64,5 +67,19 @@ export class ProdutosComponent implements OnInit {
    })
   }
 
+  delete(): void{
+    this.produtosService.deletarProduto(this.index).pipe(first()).subscribe({next:()=>{
+      alert('Produto deletado com sucesso!')
+    },
+      error:(error)=>{
+        this.erro = error;
+        console.log(this.erro)
+      }
+    })
+  }
+
+  pegarId(id: number){
+    this.index = id;
+  }
 
 }

@@ -28,6 +28,7 @@ import { TodosProdutosComponent } from './jogos-app/todos-produtos/todos-produto
 import { ProdutosComponent } from './produtos/produtos.component';
 import { JogosAppLogadoComponent } from './logado/jogos-app-logado/jogos-app-logado.component';
 import { BlogComponent } from './blog/blog.component';
+import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 
 
 
@@ -57,6 +58,7 @@ import { BlogComponent } from './blog/blog.component';
     ProdutosComponent,
     JogosAppLogadoComponent,
     BlogComponent,
+    ProdutoDeleteComponent,
     
   ],
   imports: [
