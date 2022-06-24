@@ -1,6 +1,7 @@
 <app-header-usuario></app-header-usuario>
-<div   class="row  container-fluid d-flex justify-content-center">
+<div   class="row  container-fluid d-flex justify-content-center">  
     <form  fxLayout="row" fxLayoutAlign="space-around center" style=" padding-top: 40px; padding-left:10%; padding-right: 10%;">
+        <h2 class="text-center">Cadastrar Produtos</h2>
         <div fxLayout="row" fxLayoutAlign="space-around center"  style="margin-left: auto; margin-left: auto;">
             <div>              
                 <input  [(ngModel)]="produtos.idProduto" type="number"  class="form-control" name="idProduto" id="idProduto" value="0" placeholder="0" disabled>
@@ -90,15 +91,15 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Deletar Produto</h5>
+                  <h3 class="modal-title" id="exampleModalLabel">Deletar Produto</h3>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <p>Tem certeza que deseja deletar este produto?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="reset" class="btn pStyleDark " data-bs-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn buttonStyle deleteButton" (click)="delete() " data-bs-dismiss="modal">Deletar</button>
+                  <button style="background: #010127;" type="reset" class="btn text-white" data-bs-dismiss="modal">Cancelar</button>
+                  <button style="background:#e63909; " type="submit" class="btn text-white" (click)="delete() " data-bs-dismiss="modal">Deletar</button>
                 </div>
               </div>
             </div>
