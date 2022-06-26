@@ -2,8 +2,8 @@
 <div class="container-fluid p-0  d-flex justify-content-center align-items-center" style="margin-bottom: -15%;">
     <div class="container">
         <div class="row">
-            <div class="col-md-2" id="img-bg">    
-            </div>    
+            <div class="col-md-2" id="img-bg">
+            </div>
             <div class="col-md-8 mt-5 mb-5">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-md-10">
@@ -31,32 +31,32 @@
                         <div class="form-group">
                             <label for="confirmeSenha">Confirmar senha</label>
                             <br>
-                            <input [(ngModel)]="user.senha" class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
-                        </div>                       
+                            <input [(ngModel)]="user.senha" class="form-control" type="password" name="senha" id="senhaConf" placeholder="Sua senha">
+                        </div>
                         <br>
                         <div class="d-flex justify-content-center align-items-center">
                             <button type="submit" class="btn btn-danger mr-4" style="margin: 15px; background: #e63909;" routerLink="/home">Cancelar</button>
-                            <button type="submit" class="btn btn-succes text-white"style="margin: 15px; background: #010127" (click)="cadastrar()">Cadastrar</button>
+                            <button type="submit" class="btn btn-succes text-white"style="margin: 15px; background: #010127" id="botaoCadastrar" (click)="cadastrar()">Cadastrar</button>
                         </div>
                         <div>
                             <hr class="mt-5 mb-5">
-  
+
                             <p class="text-center">
                               Já tem uma conta? <a  routerLink='/login'>Faça seu login</a>
                             </p>
-  
-                        </div>
-    
 
-    
+                        </div>
+
+
+
                     </div>
-    
+
                 </div>
-    
+
             </div>
-    
+
         </div>
-    
+
     </div>
 </div>
 <app-footer></app-footer>
