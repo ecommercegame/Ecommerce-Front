@@ -10,9 +10,9 @@
   <div class="row">
     <div class="col-lg-3 text-center" *ngFor="let item of produtos">
       <div class="card border-0 bg-light mb-2">
-        <a [routerLink]="['/tela-produto', item.idProduto]" class="btn p-0">
+        <a [routerLink]="['/produtos-lista', item.idProduto]" class="btn p-0">
           <div class="card-body">
-            <a routerlink="/produtos"><img class="img-card img-fluid rounded" src='{{ "../../../../../assets/jogos/"+item.imagem}}' alt="not found"></a>
+            <a routerlink="/todos-produtos"><img class="img-card img-fluid rounded" src='{{ "../../../../../assets/jogos/"+item.imagem}}' alt="not found"></a>
           </div>
 
           <div class="card-footer">

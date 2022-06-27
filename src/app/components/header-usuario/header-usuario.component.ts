@@ -10,7 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./header-usuario.component.css']
 })
 export class HeaderUsuarioComponent implements OnInit {
-
+  nomeProduto: string;
+  
   nome=environment.nome
   usuario= environment.usuario
 

@@ -1,1 +1,99 @@
-<p>produtos-edit works!</p>
+
+<div class="container-fluid p-0 d-flex bg-light align-items-center">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+  
+        <form class="form-signin rounded-sm shadow vw-100">
+          <!-- <div class="mx-auto" style="width:200px"><img class="mb-4 logo" src="https://imgur.com/zapHOY2.png" alt="">
+          </div> -->
+          <div class="col-md-12 mt-3 mb-5">
+          <div class="row d-flex justify-content-center">
+              <div class="col-md-10">
+              <h1 class="text-center">Atualizar o produto</h1>
+  
+              <div class="form-group">
+                  <label for="produto">Produto</label>
+                  <input
+                  [(ngModel)]="produtos.nomeProduto"
+                  class="form-control"
+                  type="text"
+                  name="produto"
+                  id="produto"
+                  placeholder="Nome do produto"
+                  />
+              </div>
+  
+              <div class="form-group">
+                  <label for="descricao">Descrição</label>
+                  <textarea
+                  [(ngModel)]="produtos.descricaoProduto"
+                  class="form-control"
+                  name="descricao"
+                  id="descricao"
+                  placeholder="Descreva a sua aula"
+                  cols="30"
+                  rows="10"
+                  ></textarea>
+              </div>
+  
+              <div class="form-group">
+                  <label for="valor">Valor</label>
+                  <input
+                  [(ngModel)]="produtos.valorProduto"
+                  class="form-control"
+                  type="text"
+                  name="valor"
+                  id="valor"
+                  placeholder="Digite o valor do seu produto"
+                  />
+              </div>
+  
+              <div class="form-group">
+                  <label for="categoria">Categoria</label>
+                  <select class="form-control" name="categoria" id="categoria" (change)="categoriaProd($event)">
+                    <option value="ALL">Todos</option>
+                    <option value="ACAO">Ação</option>
+                    <option value="AVENTURA">Aventura</option>
+                    <option value="BATTLEROYALE">Battle Royale</option>
+                    <option value="CORRIDA">Corrida</option>
+                    <option value="ESPORTE">Esporte</option>
+                    <option value="TERROR">Terror</option>
+                  </select>
+              </div>  
+              
+  
+  
+              <div class="form-group">
+                  <label for="imagem">Imagem do Produto</label>
+                  <input
+                  [(ngModel)]="produtos.imagem"
+                  class="form-control"
+                  type="text"
+                  name="imagem"
+                  id="imagem"
+                  placeholder="{{produtos.imagem}}"
+                  />
+              </div>
+  
+              <div class="d-flex justify-content-center py-3">
+                  <!-- <button
+                  type="cancel"
+                  class="btn btn-danger mr-5 w-25"
+                  [routerLink]="['/administrador']"
+                  >
+                  Cancelar
+                  </button> -->
+                  <button
+                  type="submit"
+                  class="btn btn-success w-25"
+                  (click)="atualizar()"
+                  >
+                  Atualizar
+                  </button>
+              </div>
+              </div>
+          </div>
+          </div>
+      </form></div>
+  </div>
+  </div>
