@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import Swal from 'sweetalert2';
 import { Pedidos } from '../model/Pedidos';
 import { Produtos } from '../model/Produtos';
+import { User } from '../model/User';
+import { AuthService } from '../service/auth.service';
+import { PedidosService } from '../service/pedidos.service';
 import { ProdutosService } from '../service/produtos.service';
 
 @Component({
@@ -11,22 +15,66 @@ import { ProdutosService } from '../service/produtos.service';
   styleUrls: ['./pedidos.component.css']
 })
 export class PedidosComponent implements OnInit {
-
-  listaProdutos: Produtos[]
-  pedidos: Pedidos = new Pedidos
-  valorTotal = this.pedidos.valorTotal
+  carrinho = environment.carrinho
+  produto: Produtos = new Produtos()
+  listaProdutos: Array<Produtos> = []
+  soma = 0
 
   constructor(
-    private router: Router,
-    private produtoService: ProdutosService
-  ) { }
+    private produtoService: ProdutosService,
+    private router: Router
+    ) { }
 
-  ngOnInit(){
-
-    if(environment.token = ''){
-      this.router.navigate(['/entrar'])
-    }
-
+  ngOnInit() {
+    this.carrinhoCompleto()
   }
 
+  findProdutoById(id: number) {
+    this.produtoService.getProdutoById(id).subscribe((resp: Produtos)=>{
+      this.produto = resp
+      this.soma += this.produto.valorProduto
+      this.listaProdutos.push(this.produto)
+    })
+  }
+
+  carrinhoCompleto() {
+    for(let item in this.carrinho){
+      if(this.carrinho[item] > 0) {
+        let id = this.carrinho[item]
+        this.findProdutoById(id)
+      }
+    }
+  }
+finalizarCompra() {
+    if(environment.token == '') {
+      Swal.fire({
+        title: 'Você precisa estar logado!',
+        icon: 'warning'
+      }
+      )
+      this.router.navigate(['/login'])
+      // alert('Você precisa estar logado!')
+
+    } else if(this.listaProdutos.length > 0) {
+      Swal.fire(
+        'Muito obrigado pela compra!',
+        'Você acabou de nos ajudar a avançar a <b> erradicação da pobreza</b> no mundo!',
+        'success'
+        //,
+        //confirmButtonText: 'Cool',
+        //confirmButtonColor: ''
+    )
+      // alert('Muito obrigado pela compra!')
+      this.listaProdutos = []
+      environment.carrinho = [0]
+      this.router.navigate(['/home'])
+    } else {
+      Swal.fire({
+        title: 'Seu carrinho está vazio!',
+        icon: 'warning'
+      }
+      )
+      //alert('Seu carrinho está vazio!')
+    }
+  }
 }

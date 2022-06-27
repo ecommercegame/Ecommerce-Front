@@ -23,11 +23,13 @@ import { SobreComponent } from './components/sobre/sobre.component';
 import { PerfilUsuarioComponent } from './components/header-usuario/perfil-usuario/perfil-usuario.component';
 import { JogosAppComponent } from './jogos-app/jogos-app.component';
 import { ProdutosListaComponent } from './jogos-app/produtos-lista/produtos-lista.component';
-import { ProdutosItemComponent } from './jogos-app/produtos-lista/produtos-item/produtos-item.component';
 import { TodosProdutosComponent } from './jogos-app/todos-produtos/todos-produtos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { JogosAppLogadoComponent } from './logado/jogos-app-logado/jogos-app-logado.component';
 import { BlogComponent } from './blog/blog.component';
+import { BuscaProdutoComponent } from './components/busca-produto/busca-produto.component';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
+import { ProdutosEditComponent } from './edit/produtos-edit/produtos-edit.component';
 
 
 
@@ -53,11 +55,13 @@ import { BlogComponent } from './blog/blog.component';
     PerfilUsuarioComponent,
     JogosAppComponent,
     ProdutosListaComponent,
-    ProdutosItemComponent,
     TodosProdutosComponent,
     ProdutosComponent,
     JogosAppLogadoComponent,
     BlogComponent,
+    BuscaProdutoComponent,
+    UsuarioEditComponent,
+    ProdutosEditComponent,
     
   ],
   imports: [
