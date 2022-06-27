@@ -4,8 +4,8 @@ import { BlogComponent } from './blog/blog.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { BuscaProdutoComponent } from './components/busca-produto/busca-produto.component';
 import { ComponentsComponent } from './components/components.component';
-import { PerfilUsuarioComponent } from './components/header-usuario/perfil-usuario/perfil-usuario.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProdutosEditComponent } from './edit/produtos-edit/produtos-edit.component';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { JogosAppComponent } from './jogos-app/jogos-app.component';
 import { ProdutosListaComponent } from './jogos-app/produtos-lista/produtos-lista.component';
@@ -24,7 +24,6 @@ const routes: Routes = [
   {path: 'home-logado', component: HomeLogadoComponent},
   {path: 'components', component: ComponentsComponent},
   {path: 'logado', component: LogadoComponent},
-  {path: 'perfil-usuario', component: PerfilUsuarioComponent},
   {path: 'jogos-cadastro', component: ProdutosComponent },
   {path: 'jogos-app', component: JogosAppComponent},
   {path: 'jogos-app-logado', component: JogosAppLogadoComponent},
@@ -32,8 +31,8 @@ const routes: Routes = [
   {path: 'pedidos', component: PedidosComponent}, //adicionado rota pedidos
   {path: 'produtos-lista/:id', component: ProdutosListaComponent},
   {path: 'busca-produto/:nome', component: BuscaProdutoComponent},
-  {path: 'usuario-edit/:id', component: UsuarioEditComponent}
-  
+  {path: 'usuario-edit/:id', component: UsuarioEditComponent},
+  {path: 'produtos-edit/:id', component: ProdutosEditComponent}
 ];
 
 @NgModule({

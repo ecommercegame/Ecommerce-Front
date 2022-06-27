@@ -20,7 +20,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LogadoComponent } from './logado/logado.component';
 import { HomeLogadoComponent } from './logado/home-logado/home-logado.component';
 import { SobreComponent } from './components/sobre/sobre.component';
-import { PerfilUsuarioComponent } from './components/header-usuario/perfil-usuario/perfil-usuario.component';
 import { JogosAppComponent } from './jogos-app/jogos-app.component';
 import { ProdutosListaComponent } from './jogos-app/produtos-lista/produtos-lista.component';
 import { TodosProdutosComponent } from './jogos-app/todos-produtos/todos-produtos.component';
@@ -52,7 +51,6 @@ import { ProdutosEditComponent } from './edit/produtos-edit/produtos-edit.compon
     LogadoComponent,
     HomeLogadoComponent,
     SobreComponent,
-    PerfilUsuarioComponent,
     JogosAppComponent,
     ProdutosListaComponent,
     TodosProdutosComponent,

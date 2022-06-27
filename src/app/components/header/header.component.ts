@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   
 })
 export class HeaderComponent implements OnInit {
-  nomeProduto: string
+  nomeProcurado: string
   
   constructor(
     private router: Router

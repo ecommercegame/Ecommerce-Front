@@ -27,7 +27,7 @@ export class BuscaProdutoComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         let nome = event.url
-        nome = nome.split('/nome/')[2]
+        nome = nome.split('/')[2]
         this.findByNomeProduto(nome)
       }
    })
@@ -39,7 +39,7 @@ export class BuscaProdutoComponent implements OnInit {
       this.produtos = resp
     })
     this.nomeProcurado = nome
-    console.log('passou aqui')
+    console.log(nome)
   }
 
 }

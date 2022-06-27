@@ -17,28 +17,18 @@
       <ul class="navbar-nav gap-4">
           <li class="nav-item" style="cursor: pointer;">
               <div fxLayout="row" fxLayoutAlign="space-around center"  style=" margin-top: 0; padding-top: 0; margin-left: 2%;">
-                  <form class="form d-flex"fxLayout="row" fxLayoutAlign="center center" style="width: auto;">
-                      <input class="form-control mr-4" type="search" style="width: 80%; margin-left: auto;" placeholder="O que está procurando?" aria-label="Search">
-                      <img src="../../../assets/Images/lupablanca.png" class="btn btn-outline" style="background: #010127; width: 55px; height:40px;" type="submit" alt="buscar">
-                  </form>
+                <form class="form d-flex"fxLayout="row" fxLayoutAlign="center center" style="width: auto;">
+                  <input [(ngModel)]="nomeProduto" class="form-control mr-4" type="search" style="width: 80%; margin-left: auto;" placeholder="O que está procurando?" aria-label="Search">
+                  <img [routerLink]="['busca-produto', nomeProduto]"  src="../../../assets/Images/lupablanca.png" class="btn btn-outline" type="submit" alt="buscar" style="background: #010127; width: 55px; height:40px;">
+                </form>
               </div>
           </li>
         <li class="nav-item">
           <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/logado">Nossa História</a>
         </li>
         <li class="nav-item">
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" style="background: #010127; border: 0;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Jogos
-              </button>
-              <div class="dropdown-menu" style="background: white;" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" routerLink="/jogos-app-logado">Todos</a>
-                  <a class="dropdown-item" routerLink="">Ação</a>
-                  <a class="dropdown-item" href="#">Aventura</a>
-                  <a class="dropdown-item" href="#">Corrida</a>
-              </div>
-          </div>
-        </li>
+          <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/jogos-app">Jogos</a>
+        </li>   
         <li class="nav-item">
           <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" style="background: #010127; border: 0;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

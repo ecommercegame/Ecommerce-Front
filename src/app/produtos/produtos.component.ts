@@ -2,7 +2,7 @@ import { first } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutosService } from '../service/produtos.service';
 import { Produtos } from '../model/Produtos';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import Swal from 'sweetalert2';
 
@@ -80,6 +80,14 @@ export class ProdutosComponent implements OnInit {
 
   pegarId(id: number){
     this.index = id;
+  }
+
+
+  atualizar(){
+    this.produtosService.putProdutos(this.produtos).subscribe((resp: Produtos)=>{
+      this.produtos = resp
+      alert('Produto atualizado')
+    })
   }
 
 }
