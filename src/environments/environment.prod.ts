@@ -5,7 +5,7 @@ export const environment = {
   idUsuario: 0,
   cpfUsuario: '',
   usuario: '',
-  apiUrl: 'http://localhost:8080'
+  carrinho:[0]
   //TENTATIVA DE PUXAR O EMAIL DO USUARIO usuario:''
 
 };

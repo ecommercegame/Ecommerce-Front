@@ -7,6 +7,6 @@ export class Pedidos {
     public maisVendidos: number;
     public valorTotal: number;
     public usuarios: User;
-    public produtos: Produtos[];
+    public produtos: Produtos;
 
 }

@@ -8,6 +8,9 @@ import { Pedidos } from '../model/Pedidos';
   providedIn: 'root'
 })
 export class PedidosService {
+  push(id: number) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private http: HttpClient
@@ -21,7 +24,11 @@ export class PedidosService {
     this.token={
       headers: new HttpHeaders().set("Authorization", environment.token),
     };
-}
+  
+  }
+  getAllCompras(){
+    return this.http.get<Pedidos[]>('https://localholst:8080/pedidos/',this.token)
+  }
 
   getCompras(id: number): Observable<Pedidos>{
     return this.http.get<Pedidos>(`https://localholst:8080/pedidos/${id}`, this.token)

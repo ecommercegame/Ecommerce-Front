@@ -8,6 +8,6 @@ export class Produtos{
     public estoque: number;
     public categorias: string;
     public imagem: string;
-    public pedidos: Pedidos;
+    public pedidos: Pedidos[];
     
 }
