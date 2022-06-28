@@ -45,7 +45,7 @@ export class PedidosComponent implements OnInit {
       }
     }
   }
-finalizarCompra() {
+  finalizarCompra() {
     if(environment.token == '') {
       Swal.fire({
         title: 'Você precisa estar logado!',
@@ -53,28 +53,24 @@ finalizarCompra() {
       }
       )
       this.router.navigate(['/login'])
-      // alert('Você precisa estar logado!')
-
+     
     } else if(this.listaProdutos.length > 0) {
-      Swal.fire(
-        'Muito obrigado pela compra!',
-        'Você acabou de nos ajudar a avançar a <b> erradicação da pobreza</b> no mundo!',
-        'success'
-        //,
-        //confirmButtonText: 'Cool',
-        //confirmButtonColor: ''
-    )
-      // alert('Muito obrigado pela compra!')
-      this.listaProdutos = []
-      environment.carrinho = [0]
-      this.router.navigate(['/home'])
-    } else {
       Swal.fire({
-        title: 'Seu carrinho está vazio!',
-        icon: 'warning'
+        title: 'Obrigada pela compra!',
+        icon: 'success'
       }
       )
-      //alert('Seu carrinho está vazio!')
-    }
+     
+      this.listaProdutos = []
+      environment.carrinho = [0]
+      this.router.navigate(['/template'])
+      } else {
+        Swal.fire({
+          title: 'Seu carrinho está vazio!',
+          icon: 'warning'
+        }
+        )
+      
+      }
   }
 }

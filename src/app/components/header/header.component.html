@@ -24,7 +24,7 @@
               </div>
           </li>
         <li class="nav-item">
-          <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/components">Nossa História</a>
+          <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/sobre">Nossa História</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/jogos-app">Jogos</a>
@@ -43,16 +43,36 @@
       </ul>
       <!-- ÍCONES -->
       <ul class="navbar-nav gap-4">
-        <li class="nav-item">
+
+        <li class="nav-item dropdown" *ngIf="auth.logado()">
+          <a class="nav-link dropdown-toggle text-light" href="#"
+            id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Olá, {{nome}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/usuario-edit', auth.userId()]">Editar perfil</a>
+            <a class="dropdown-item" routerLink="/jogos-cadastro">Cadastrar produto</a> 
+            <!-- <a *ngIf="tipo == 'adm'" class="dropdown-item" routerLink="/categoria">Cadastrar categoria</a> -->
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" href="#"
+              (click)="sair()">Sair</a>
+          </div>
+        </li>
+
+        <li class="nav-item" *ngIf="auth.logado() == false">
           <button class="btn btn-secondary " style="background: #010127; border: 0;" type="button" id="dropdownMenuButton" data-toggle="dropdown"  aria-expanded="false">
             <svg  width="32px" height="32px" style="margin-left: 0; margin-right:0; margin-top:0px; padding-top: 0; padding-left: 0; padding-right: 0;" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-opacity="0.01" d="M4.204 4.2H29.83v25.6H4.204z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M17.017 8.466a4.269 4.269 0 014.272 4.267A4.269 4.269 0 0117.017 17a4.269 4.269 0 01-4.27-4.267 4.269 4.269 0 014.27-4.267zm0 1.6a2.668 2.668 0 00-2.67 2.667 2.668 2.668 0 002.67 2.667 2.668 2.668 0 002.67-2.667 2.668 2.668 0 00-2.67-2.667zm0 8.534c1.478 0 3.53.48 5.175 1.24 2.07.955 3.368 2.246 3.368 3.826 0 1.031-.837 1.867-1.869 1.867H10.344a1.868 1.868 0 01-1.87-1.867c0-1.58 1.3-2.87 3.369-3.826 1.645-.76 3.696-1.24 5.174-1.24zm0 1.6c-1.251 0-3.077.435-4.502 1.093-1.67.77-2.438 1.614-2.438 2.373 0 .148.12.267.267.267H23.69c.148 0 .267-.12.267-.267 0-.76-.77-1.603-2.438-2.373-1.425-.658-3.251-1.093-4.503-1.093z" fill="#fff"></path><ellipse cx="17.017" cy="17" rx="16.017" ry="16" stroke="#fff" stroke-width="2"></ellipse></svg>
           </button>
-          <div class="dropdown-menu" style="background: white" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-menu" style="background: white" aria-labelledby="dropdownMenuButton" >
             <a class="dropdown-item" routerLink="/login">Entrar</a>
             <a class="dropdown-item" routerLink="/cadastrar">Cadastrar</a>
-          </div>
+          </div>         
+        </li> 
+    
 
-        </li>
+       
+       
         <li class="nav-item">
           <button class="btn" type="button" style="background: #010127; border: 0;">
             <!-- ADICIONANDO ROTA PEDIDOS NA CESTA -->
@@ -82,7 +102,7 @@
         <div class="modal-body">
           <div class="form-group">
               <label for="titulo">E-mail</label>
-              <input type="text" class="form-control" id="email" placeholder="Informe seu e-mail" required="required">
+              <input type="text" class="form-control" id="email" placeholder="Informe seu e-mail" value="{{email}}" required="required">
           </div>
           <div class="form-group">
             <label for="texto">Assunto </label>
