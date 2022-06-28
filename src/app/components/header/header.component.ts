@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/model/User';
+import { AuthService } from 'src/app/service/auth.service';
+import { environment } from 'src/environments/environment.prod';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,14 +12,31 @@ import Swal from 'sweetalert2';
   
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() isHeader: boolean;
+
   nomeProcurado: string
+
+  usuario: User = new User()
+
+  nome = environment.nome 
+  id = environment.idUsuario
+  email = environment.usuario
+  token = environment.token
   
   constructor(
-    private router: Router
+    private router: Router,
+    public auth: AuthService
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    // window.scroll(0,0)
+    
+  }
+
+  ngAfterContentChecked() {
+    this.token = environment.token    
+    this.nome = environment.nome
   }
 
   Enviar() {
@@ -28,4 +48,14 @@ export class HeaderComponent implements OnInit {
     )      
     
   }
+
+  sair(){
+    this.router.navigate(['/inicio'])
+    environment.token = ''
+    environment.nome = ''
+    environment.usuario = ''
+    environment.idUsuario = 0
+  }
+
+  
 }

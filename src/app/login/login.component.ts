@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    window.scroll(0,0)
+    
   }
 
   login(){
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
       console.log(environment.cpfUsuario)
       console.log(environment.usuario)
       
-      this.router.navigate(['/home-logado'])
+      this.router.navigate(['/home'])
 
     },
     erro => {

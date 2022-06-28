@@ -20,12 +20,7 @@ export class AuthService {
   token = {
     headers: new HttpHeaders().set("Authorization", environment.token),
   };
-
-  refreshToken(){
-    this.token={
-      headers: new HttpHeaders().set("Authorization", environment.token),
-    };
-}
+ 
 
   buscarTodos(): Observable<UserLogin[]>{
     return this.http.get<UserLogin[]>(this.userUrl)
@@ -86,6 +81,11 @@ export class AuthService {
   //   return ok
   // }
 
+  refreshToken(){
+    this.token={
+      headers: new HttpHeaders().set("Authorization", environment.token),
+    };
+  }
  
 }
 

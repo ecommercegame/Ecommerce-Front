@@ -1,52 +1,114 @@
-<app-header-usuario></app-header-usuario>
-<div   class="row  container-fluid d-flex justify-content-center">
-    <form  fxLayout="row" fxLayoutAlign="space-around center" style=" padding-top: 40px; padding-left:10%; padding-right: 10%;">
-        <h2 class="text-center">Cadastrar Produtos</h2>
-        <div fxLayout="row" fxLayoutAlign="space-around center"  style="margin-left: auto; margin-left: auto;">
-            <div>
-                <input [(ngModel)]="produtos.idProduto" type="number"  class="form-control" name="idProduto" id="idProduto" value="0" placeholder="0" disabled>
-            </div>
-            <div  class="form-group" fxLayout="row" fxLayoutAlign="center center">
-                <label for="nome">Nome</label>
-                <input [(ngModel)]="produtos.nomeProduto"  type="text" class="form-control" id="nome" placeholder="Nome do produto">
-            </div>
-            <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
-                <label for="descricao">Descrição</label>
-                <input [(ngModel)]="produtos.descricaoProduto" type="text" class="form-control" id="descricao" placeholder="Descrição do produto">
-            </div>
-            <div class="form-group">
-                <label for="valor">Valor do Produto</label>
-                <input [(ngModel)]="produtos.valorProduto" min="0" type="number" class="form-control" id="valor" placeholder="Valor unitário">
-            </div>
-            <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
-                <label for="estoque">Estoque</label>
-                <input [(ngModel)]="produtos.estoque" min="0" type="number" class="form-control" id="estoque" placeholder="Quantidade em estoque">
-            </div>
-            <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;"fxLayout="row" fxLayoutAlign="center center">
-              <label for="categoria">Categorias:</label>
-              <select class="form-control" name="categorias" id="categorias" (change)="categoriaProd($event)">
-                <option value="ALL">Selecione uma categoria:</option>
-                <option value="ACAO">Ação</option>
-                <option value="AVENTURA">Aventura</option>
-                <option value="ESPORTE">Esporte</option>
-                <option value="CORRIDA">Corrida</option>
-                <option value="RPG">Rpg</option>
-                <option value="TERROR">Terror</option>
-                <option value="BATTLEROYALE">Battle Royale</option>
-              </select>
+<!-- <app-header-usuario></app-header-usuario> -->
+<app-header></app-header>
+<div class="container-fluid p-0 d-flex align-items-center">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+  
+        <form class="form-signin rounded-sm vw-100">
+          <div class="col-md-12 mt-3 mb-5">
+          <div class="row d-flex justify-content-center">
+              <div class="col-md-10">
+              <h2 class="text-center">Cadastrar Produto</h2>
+  
+              <div class="form-group">
+                  <label for="produto">Produto</label>
+                  <input
+                  [(ngModel)]="produtos.nomeProduto"
+                  class="form-control"
+                  type="text"
+                  name="produto"
+                  id="produto"
+                  placeholder="Nome do produto"
+                  />
+              </div>
+  
+              <div class="form-group">
+                  <label for="descricao">Descrição</label>
+                  <textarea
+                  [(ngModel)]="produtos.descricaoProduto"
+                  class="form-control"
+                  name="descricao"
+                  id="descricao"
+                  placeholder="Descrição do produto"
+                  cols="30"
+                  rows="10"
+                  ></textarea>
+              </div>
+  
+              <div class="form-group">
+                  <label for="valor">Valor</label>
+                  <input
+                  [(ngModel)]="produtos.valorProduto"
+                  class="form-control"
+                  type="text"
+                  name="valor"
+                  id="valor"
+                  placeholder="Digite o valor do seu produto"
+                  />
+              </div>
+              <div class="form-group">
+                  <label for="valor">Estoque</label>
+                  <input
+                  [(ngModel)]="produtos.estoque"
+                  class="form-control"
+                  type="text"
+                  name="estoque"
+                  id="estoque"
+                  placeholder="Digite a quantidade em estoque"
+                />
+              </div>
+  
+              <div class="form-group">
+                  <label for="categoria">Categoria</label>
+                  <select class="form-control" name="categoria" id="categoria" (change)="categoriaProd($event)">
+                    <option value="ALL">Todos</option>
+                    <option value="ACAO">Ação</option>
+                    <option value="AVENTURA">Aventura</option>
+                    <option value="BATTLEROYALE">Battle Royale</option>
+                    <option value="CORRIDA">Corrida</option>
+                    <option value="ESPORTE">Esporte</option>
+                    <option value="TERROR">Terror</option>
+                  </select>
+              </div>  
+              
+  
+  
+              <div class="form-group">
+                  <label for="imagem">Imagem do Produto</label>
+                  <input
+                  [(ngModel)]="produtos.imagem"
+                  class="form-control"
+                  type="text"
+                  name="imagem"
+                  id="imagem"
+                  placeholder="{{produtos.imagem}}"
+                  />
+              </div>
+  
+              <div class="d-flex justify-content-center py-3">                  
+                  <button
+                  type="submit"
+                  class="btn btn-success w-25"
+                  (click)="cadastrarProduto()"
+                  style="background: #010127; margin-top: 20px; 
+                  border: 0;"
+                  >
+                  Cadastrar
+                  </button>
+                  <button
+                  type="reset"
+                  class="btn btn-reset w-25" 
+                  style="background: #e63909; color: white; margin-left: 20px; 
+                  margin-top: 20px; border: 0"                 
+                  >
+                  Limpar preenchimento
+                  </button>
+              </div>
+              </div>
           </div>
-            <div class="form-group" fxLayout="row" fxLayoutAlign="center center">
-                <label for="imagem">Imagem</label>
-                <input [(ngModel)]="produtos.imagem" type="text" class="form-control" id="imagem" placeholder="Endereço da imagem">
-            </div>
-            <div class="container d-flex">
-                <button type="submit" class="btn btn-primary" style="background: #010127; margin-top: 20px; border: #e63909;"(ngSubmit)="cadastrarProduto()">Cadastrar produto</button>
-                <button type="reset" class="btn btn-primary" style="background: #e63909; margin-left: 20px; margin-top: 20px; border: #e63909;">Limpar preenchimento</button>
-            </div>
-
-        </div>
-
-    </form>
+          </div>
+      </form></div>
+  </div>
 </div>
 <hr>
 
@@ -63,7 +125,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Id</th>
             <th scope="col">Nome Produto</th>
             <th scope="col">Categoria</th>
             <th scope="col">Estoque</th>
