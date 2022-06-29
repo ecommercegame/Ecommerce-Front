@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit {
   id = environment.idUsuario
   email = environment.usuario
   token = environment.token
-  
+  tipo = environment.tipo
+
   constructor(
     private router: Router,
     public auth: AuthService
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit {
   ngAfterContentChecked() {
     this.token = environment.token    
     this.nome = environment.nome
+    this.tipo = environment.tipo
   }
 
   Enviar() {
@@ -57,5 +59,17 @@ export class HeaderComponent implements OnInit {
     environment.idUsuario = 0
   }
 
-  
+  adm(){
+    if (environment.nome == "Admin"){
+      this.router.navigate(["/jogos-cadastro"])
+    }
+    else{    
+      
+      Swal.fire({
+        title: 'Você não tem permissão de administrador',
+        icon: 'error'
+      })       
+      
+    }
+  }
 }
