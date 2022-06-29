@@ -77,7 +77,10 @@ export class TodosProdutosComponent implements OnInit {
 
       this.carrinho.postCompras(this.compra).subscribe((resp: Pedidos) => {
         this.compra = resp;
-        alert('Produto adicionado ao carrinho com sucesso')
+        Swal.fire({
+          title: 'Produto adicionado ao carrinho com sucesso!',
+          icon: 'success'
+      })
         this.compra = new Pedidos
       })
     })
@@ -87,15 +90,12 @@ export class TodosProdutosComponent implements OnInit {
     return this.router.navigate(['/pedidos', this.getProdById])
   }
 
-  
+
   adicionarAoCarrinho(id: number) {
     this.carrinho.push(id)
     Swal.fire({
       title: 'Produto adicionado ao carrinho!',
       icon: 'success'
-      //,
-      //confirmButtonText: 'Cool',
-      //confirmButtonColor: ''
   })
     //alert("Produto adicionado ao carrinho!")
   }

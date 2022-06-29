@@ -18,8 +18,8 @@
           <li class="nav-item" style="cursor: pointer;">
               <div fxLayout="row" fxLayoutAlign="space-around center"  style=" margin-top: 0; padding-top: 0; margin-left: 2%;">
                 <form class="form d-flex"fxLayout="row" fxLayoutAlign="center center" style="width: auto;">
-                      <input [(ngModel)]="nomeProcurado" class="form-control mr-4" type="search" style="width: 80%; margin-left: auto;" placeholder="O que está procurando?" aria-label="Search">
-                      <img routerLink="/jogos-app"  src="../../../assets/Images/lupablanca.png" class="btn btn-outline" type="submit" alt="buscar" style="background: #010127; width: 55px; height:40px;">
+                      <input [(ngModel)]="nomeProcurado" name="nomeProcurado" class="form-control mr-4" type="search" style="width: 80%; margin-left: auto;" placeholder="O que está procurando?" aria-label="Search">
+                      <img [routerLink]="['/busca-produto', nomeProcurado]" src="../../../assets/Images/lupablanca.png" class="btn btn-outline" type="search" alt="buscar" style="background: #010127; width: 55px; height:40px;">
                 </form>
               </div>
           </li>
@@ -52,7 +52,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['/usuario-edit', auth.userId()]">Editar perfil</a>
-            <a class="dropdown-item" routerLink="/jogos-cadastro">Cadastrar produto</a> 
+            <a class="dropdown-item" routerLink="/jogos-cadastro">Cadastrar produto</a>
             <!-- <a *ngIf="tipo == 'adm'" class="dropdown-item" routerLink="/categoria">Cadastrar categoria</a> -->
             <div class="dropdown-divider"></div>
             <a class="dropdown-item text-danger" href="#"
@@ -67,12 +67,12 @@
           <div class="dropdown-menu" style="background: white" aria-labelledby="dropdownMenuButton" >
             <a class="dropdown-item" routerLink="/login">Entrar</a>
             <a class="dropdown-item" routerLink="/cadastrar">Cadastrar</a>
-          </div>         
-        </li> 
-    
+          </div>
+        </li>
 
-       
-       
+
+
+
         <li class="nav-item">
           <button class="btn" type="button" style="background: #010127; border: 0;">
             <!-- ADICIONANDO ROTA PEDIDOS NA CESTA -->

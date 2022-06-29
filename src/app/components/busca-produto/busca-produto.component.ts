@@ -39,7 +39,7 @@ export class BuscaProdutoComponent implements OnInit {
       this.produtos = resp
     })
     this.nomeProcurado = nome
-    console.log(nome)
+    /* console.log(nome) */
   }
 
 }

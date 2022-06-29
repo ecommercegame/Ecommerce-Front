@@ -27,18 +27,18 @@ export class ProdutosComponent implements OnInit {
 
   ngOnInit() {
     if (environment.token == '' /* || environment.tipo != 'adm' */) {
-      
+
       Swal.fire({
         title: 'Você não possui autorização!',
         icon: 'error'
     })
-     
+
       this.router.navigate(['/home-logado']);
     }
-    this.findAllProdutos();   
+    this.findAllProdutos();
   }
 
-  findAllProdutos() {   
+  findAllProdutos() {
     this.produtosService.getAllProdutos().subscribe((resp: Produtos[]) => {
       this.listaProdutos = resp;
     });
@@ -69,7 +69,10 @@ export class ProdutosComponent implements OnInit {
 
   delete(): void{
     this.produtosService.deletarProduto(this.index).pipe(first()).subscribe({next:()=>{
-      alert('Produto deletado com sucesso!')
+      Swal.fire({
+        title: 'Produto deletado com sucesso!',
+        icon: 'success'
+    })
     },
       error:(error)=>{
         this.erro = error;
@@ -86,7 +89,10 @@ export class ProdutosComponent implements OnInit {
   atualizar(){
     this.produtosService.putProdutos(this.produtos).subscribe((resp: Produtos)=>{
       this.produtos = resp
-      alert('Produto atualizado')
+      Swal.fire({
+        title: 'Produto atualizado com sucesso!',
+        icon: 'success'
+    })
     })
   }
 

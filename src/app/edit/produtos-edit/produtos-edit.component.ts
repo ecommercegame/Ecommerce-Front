@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Produtos } from 'src/app/model/Produtos';
 import { ProdutosService } from 'src/app/service/produtos.service';
 import { environment } from 'src/environments/environment.prod';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produtos-edit',
@@ -11,7 +12,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProdutosEditComponent implements OnInit {
 
-  
+
   produtos:Produtos = new Produtos()
   idProduto:number
   categoria: string;
@@ -27,7 +28,10 @@ export class ProdutosEditComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token == ''){
-      alert('Sua seção expirou, faça o login novamente.')
+      Swal.fire({
+        title: 'Sua seção expirou, faça o login novamente!',
+        icon: 'error'
+    })
       this.router.navigate(['/login'])
     }
     let id = this.route.snapshot.params['id']
@@ -49,7 +53,10 @@ export class ProdutosEditComponent implements OnInit {
   atualizar(){
     this.produtoService.putProdutos(this.produtos).subscribe((resp:Produtos)=>{
       this.produtos = resp
-      alert('Produto atualizado com sucesso')
+      Swal.fire({
+        title: 'Produto atualizado com sucesso!',
+        icon: 'success'
+    })
       this.router.navigate(['/jogos-cadastro'])
     })
   }

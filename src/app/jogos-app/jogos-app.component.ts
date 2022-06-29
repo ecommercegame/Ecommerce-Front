@@ -6,6 +6,7 @@ import { User } from '../model/User';
 import { AuthService } from '../service/auth.service';
 import { PedidosService } from '../service/pedidos.service';
 import { ProdutosService } from '../service/produtos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-jogos-app',
@@ -74,7 +75,10 @@ export class JogosAppComponent implements OnInit {
 
       this.carrinho.postCompras(this.compra).subscribe((resp: Pedidos) => {
         this.compra = resp;
-        alert('Produto adicionado ao carrinho com sucesso')
+        Swal.fire({
+          title: 'Produto adicionado ao carrinho com sucesso!!',
+          icon: 'success'
+        })
         this.compra = new Pedidos
     })
   })
