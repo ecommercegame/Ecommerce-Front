@@ -3,13 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/User';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario-edit',
   templateUrl: './usuario-edit.component.html',
   styleUrls: ['./usuario-edit.component.css']
 })
-export class UsuarioEditComponent implements OnInit { 
+export class UsuarioEditComponent implements OnInit {
 
   usuario: User = new User();
   confirmarSenha: string;
@@ -26,7 +27,10 @@ export class UsuarioEditComponent implements OnInit {
   ngOnInit(){
     window.scroll(0,0)
     if(environment.token == ""){
-      alert("Sua seção expirou, faça o login novamente.")
+      Swal.fire({
+        title: 'Sua seção expirou, faça o login novamente!!',
+        icon: 'error'
+      })
       this.router.navigate(["/login"])
 
     }
@@ -47,13 +51,20 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   atualizar(){
-    this.usuario = this.usuario 
+    this.usuario = this.usuario
     if (this.usuario.senha != this.confirmarSenha) {
-      alert("As senhas não coincidem, tente novamente")
+      Swal.fire({
+        title: 'As senhas não coincidem, tente novamente!!',
+        icon: 'error'
+      })
+
     } else {
       this.authService.atualizar(this.usuario).subscribe((resp: User)=> {
         this.usuario = resp
-        alert("Usuário atualizado com sucesso! Faça o login novamente.")
+        Swal.fire({
+          title: 'Usuário atualizado com sucesso! Faça o login novamente.',
+          icon: 'success'
+        })
         environment.token = ''
         environment.usuario = ''
         environment.nome = ''

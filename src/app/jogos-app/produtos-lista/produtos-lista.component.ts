@@ -64,7 +64,7 @@ export class ProdutosListaComponent implements OnInit {
     })
   }
 
-  
+
 
   addProdutos(){
     this.pedido.usuarios = this.usuario
@@ -74,7 +74,10 @@ export class ProdutosListaComponent implements OnInit {
     console.log(this.pedido)
     this.pedidoService.postCompras(this.pedido).subscribe((resp: Pedidos) => {
       this.pedido = resp;
-      alert('Produto adicionado ao carrinho com sucesso')
+      Swal.fire({
+        title: 'Produto adicionado ao carrinho!',
+        icon: 'success'
+    })
       this.pedido = new Pedidos
     })
   }
@@ -84,9 +87,6 @@ export class ProdutosListaComponent implements OnInit {
     Swal.fire({
       title: 'Produto adicionado ao carrinho!',
       icon: 'success'
-      //,
-      //confirmButtonText: 'Cool',
-      //confirmButtonColor: ''
   })
     //alert("Produto adicionado ao carrinho!")
   }
