@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   id = environment.idUsuario
   email = environment.usuario
   token = environment.token
-  tipo = environment.tipo
 
   constructor(
     private router: Router,
@@ -38,7 +37,6 @@ export class HeaderComponent implements OnInit {
   ngAfterContentChecked() {
     this.token = environment.token    
     this.nome = environment.nome
-    this.tipo = environment.tipo
   }
 
   Enviar() {

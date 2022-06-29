@@ -6,6 +6,5 @@ export const environment = {
   cpfUsuario: '',
   usuario: '',
   carrinho:[0],
-  tipo: ''
 
 };
