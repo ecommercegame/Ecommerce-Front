@@ -35,8 +35,9 @@
                     <div class="one-line mb-2"></div>
 
                     <div class="d-flex justify-content-between mt-3">
-                      <button routerLink="/home" class="btn btn-danger w-25 m-0" style="background:#010127; border: 0;" type="submit">Cancelar</button>
-                      <button (click)="atualizar()" class="btn btn-success w-25 m-0" style="background: #f76201; border:0;" type="submit">Cadastrar</button>                          
+                      <button routerLink="/home" class="btn btn-danger w-25 m-0" style="background:#f76201; border: 0;" type="submit">Cancelar</button>
+                      <button (click)="atualizar()" class="btn btn-success w-25 m-0" style="background: #010127; border:0;" type="submit">Atualizar</button>    
+                      <button class="btn btn-success w-25 m-0" style="background: #e63909; border:0;" type="submit" data-bs-toggle="modal" data-bs-target="#deletarConta">Deletar Conta</button>                      
                     </div>
                 </div>
               </div>
@@ -45,6 +46,25 @@
 
       </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deletarConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Deletar Conta</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja deletar sua Conta?</p>
+      </div>
+      <div class="modal-footer">
+        <button style="background: #010127;" type="reset" class="btn text-white" data-bs-dismiss="modal">Cancelar</button>
+        <button style="background:#e63909; " type="submit" class="btn text-white" (click)="delete() " data-bs-dismiss="modal">Deletar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

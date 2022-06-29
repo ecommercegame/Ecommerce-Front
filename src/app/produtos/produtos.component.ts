@@ -26,7 +26,7 @@ export class ProdutosComponent implements OnInit {
 
 
   ngOnInit() {
-    if (environment.token == '' /* || environment.tipo != 'adm' */) {
+    if (environment.token == '') {
 
       Swal.fire({
         title: 'Você não possui autorização!',

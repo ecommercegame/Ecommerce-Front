@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
 import { User } from 'src/app/model/User';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
@@ -16,6 +17,8 @@ export class UsuarioEditComponent implements OnInit {
   confirmarSenha: string;
   tipoUsuario: string;
   cpf = environment.cpfUsuario;
+  erro: any;
+  index = environment.idUsuario;
   // idUsuario: number
 
   constructor(
@@ -37,7 +40,6 @@ export class UsuarioEditComponent implements OnInit {
 
     this.authService.refreshToken()
     let idUsuario = this.route.snapshot.params['id']
-    // this.findByIdUsuario(this.idUsuario)
     this.findByIdUsuario(idUsuario)
   }
 
@@ -81,5 +83,25 @@ export class UsuarioEditComponent implements OnInit {
       this.usuario.senha = ''
     })
   }
-}
+  
+  delete(): void{
+    this.authService.deletarUsuario(this.index).pipe(first()).subscribe({next:()=>{
+      Swal.fire({
+        title: 'Conta deletada com sucesso',
+        icon: 'success'
+    })
+    environment.token = ''
+    environment.usuario = ''
+    environment.nome = ''
+    environment.idUsuario = 0
+    this.router.navigate(["/home"])
+    },
+      error:(error)=>{
+        this.erro = error;
+        console.log(this.erro)
+      }
+    })
+  }
 
+
+}
