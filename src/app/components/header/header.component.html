@@ -23,23 +23,23 @@
                 </form>
               </div>
           </li>
-        <li class="nav-item">
-          <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/sobre">Nossa História</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/jogos-app">Jogos</a>
-        </li>
-        <li class="nav-item">
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" style="background: #010127; border: 0;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mais
-              </button>
-              <div class="dropdown-menu" style="background: white" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" routerLink="/blog">Blog</a>
-                <button class="dropdown-item" data-toggle="modal" data-target="#faleConosco">Fale Conosco</button>
-              </div>
-          </div>
-        </li>
+          <li class="nav-item">
+            <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/sobre">Nossa História</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-secondary" style="margin-left: 0; background: #010127; border: 0; " routerLink="/jogos-app">Jogos</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" style="background: #010127; border: 0;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Mais
+                </button>
+                <div class="dropdown-menu" style="background: white" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" routerLink="/blog">Blog</a>
+                  <button class="dropdown-item" data-toggle="modal" data-target="#faleConosco">Fale Conosco</button>
+                </div>
+            </div>
+          </li>
       </ul>
       <!-- ÍCONES -->
       <ul class="navbar-nav gap-4">
@@ -52,7 +52,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['/usuario-edit', auth.userId()]">Editar perfil</a>
-            <a (click)="adm()" class="dropdown-item">Cadastrar produto</a>
+            <a (click)="adm()" class="dropdown-item">Administrador</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item text-danger" href="#"
               (click)="sair()">Sair</a>
