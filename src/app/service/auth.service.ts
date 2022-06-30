@@ -32,25 +32,25 @@ export class AuthService {
 
   login(userLogin: UserLogin): Observable<UserLogin> {
 
-    return this.http.post<UserLogin>('http://localhost:8080/usuarios/logar', userLogin)
+    return this.http.post<UserLogin>('http://eccomerce-pi.herokuapp.com/usuarios/logar', userLogin)
 
   }
 
   cadastrar(user: User): Observable<User> {
     
-    return this.http.post<User>('http://localhost:8080/usuarios/cadastrar', user)
+    return this.http.post<User>('http://eccomerce-pi.herokuapp.com/usuarios/cadastrar', user)
   } 
 
   atualizar(user: User): Observable<User> {
-    return this.http.put<User>('http://localhost:8080/usuarios/atualizar/', user, this.token)
+    return this.http.put<User>('http://eccomerce-pi.herokuapp.com/usuarios/atualizar/', user, this.token)
   }
  
   getByIdUsuario(id: number): Observable<User>{
-    return this.http.get<User>(`http://localhost:8080/usuarios/${id}`, this.token)
+    return this.http.get<User>(`http://eccomerce-pi.herokuapp.com/usuarios/${id}`, this.token)
   }
   
   deletarUsuario(id: number): Observable<User>{
-    return this.http.delete<User>(`http://localhost:8080/usuarios/${id}`, this.token)
+    return this.http.delete<User>(`http://eccomerce-pi.herokuapp.com/usuarios/${id}`, this.token)
   }
 
   

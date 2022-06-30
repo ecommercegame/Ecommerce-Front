@@ -27,22 +27,22 @@ export class PedidosService {
   
   }
   getAllCompras(){
-    return this.http.get<Pedidos[]>('https://localholst:8080/pedidos/',this.token)
+    return this.http.get<Pedidos[]>('http://eccomerce-pi.herokuapp.com/pedidos/',this.token)
   }
 
   getCompras(id: number): Observable<Pedidos>{
-    return this.http.get<Pedidos>(`https://localholst:8080/pedidos/${id}`, this.token)
+    return this.http.get<Pedidos>(`http://eccomerce-pi.herokuapp.com/pedidos/${id}`, this.token)
   }
 
   postCompras(pedidos: Pedidos): Observable<Pedidos>{
-    return this.http.post<Pedidos>("https://localholst:8080/pedidos", pedidos ,this.token)
+    return this.http.post<Pedidos>("http://eccomerce-pi.herokuapp.com/pedidos", pedidos ,this.token)
   }
 
   putCompras(pedidos: Pedidos): Observable<Pedidos>{
-    return this.http.put<Pedidos>("https://localholst:8080/pedidos", pedidos ,this.token)
+    return this.http.put<Pedidos>("http://eccomerce-pi.herokuapp.com/pedidos", pedidos ,this.token)
   }
 
   deleteCompras(id: number): Observable<Pedidos>{
-    return this.http.delete<Pedidos>(`https://localholst:8080/pedidos/${id}`, this.token)
+    return this.http.delete<Pedidos>(`http://eccomerce-pi.herokuapp.com/${id}`, this.token)
   }
 }

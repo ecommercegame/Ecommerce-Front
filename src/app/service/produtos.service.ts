@@ -24,33 +24,33 @@ export class ProdutosService {
   }
 
   getAllProdutos():Observable<Produtos[]>{
-    return this.http.get<Produtos[]>('http://localhost:8080/produtos')
+    return this.http.get<Produtos[]>('http://eccomerce-pi.herokuapp.com/produtos')
 
   }
 
   getProdutoById(id: number): Observable<Produtos> {
-    return this.http.get<Produtos>(`http://localhost:8080/produtos/${id}`)
+    return this.http.get<Produtos>(`http://eccomerce-pi.herokuapp.com/produtos/${id}`)
   }
 
   getProdutosByNome(nome: string): Observable<Produtos[]>{
-    return this.http.get<Produtos[]>(`http://localhost:8080/produtos/nome/${nome}`)
+    return this.http.get<Produtos[]>(`http://eccomerce-pi.herokuapp.com/produtos/nome/${nome}`)
   }
 
   getProdutosByCategoria(categorias: string): Observable<Produtos[]>{
-    return this.http.get<Produtos[]>(`http://localhost:8080/produtos/categorias/${categorias}`)
+    return this.http.get<Produtos[]>(`http://eccomerce-pi.herokuapp.com/produtos/categorias/${categorias}`)
   }
 
 
   postProdutos(produtos:Produtos):Observable<Produtos>{
-    return this.http.post<Produtos>('http://localhost:8080/produtos/cadastrar', produtos, this.token)
+    return this.http.post<Produtos>('http://eccomerce-pi.herokuapp.com/produtos/cadastrar', produtos, this.token)
   }
 
   putProdutos(produtos: Produtos):Observable<Produtos>{
-    return this.http.put<Produtos>('http://localhost:8080/produtos/atualizar', produtos, this.token)
+    return this.http.put<Produtos>('http://eccomerce-pi.herokuapp.com/produtos/atualizar', produtos, this.token)
   }
 
 
   deletarProduto(id: number): Observable<Produtos>{
-    return this.http.delete<Produtos>(`http://localhost:8080/produtos/${id}`, this.token)
+    return this.http.delete<Produtos>(`http://eccomerce-pi.herokuapp.com/produtos/${id}`, this.token)
   }
 }
