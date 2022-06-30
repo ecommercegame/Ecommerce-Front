@@ -8,6 +8,8 @@ import { Pedidos } from '../model/Pedidos';
   providedIn: 'root'
 })
 export class PedidosService {
+pedidoURL: string = 'https://localholst:8080/pedidos'
+
   push(id: number) {
     throw new Error('Method not implemented.');
   }
@@ -24,25 +26,25 @@ export class PedidosService {
     this.token={
       headers: new HttpHeaders().set("Authorization", environment.token),
     };
-  
+
   }
   getAllCompras(){
-    return this.http.get<Pedidos[]>('https://localholst:8080/pedidos/',this.token)
+    return this.http.get<Pedidos[]>('/',this.token)
   }
 
   getCompras(id: number): Observable<Pedidos>{
-    return this.http.get<Pedidos>(`https://localholst:8080/pedidos/${id}`, this.token)
+    return this.http.get<Pedidos>(`${this.pedidoURL}/${id}`, this.token)
   }
 
   postCompras(pedidos: Pedidos): Observable<Pedidos>{
-    return this.http.post<Pedidos>("https://localholst:8080/pedidos", pedidos ,this.token)
+    return this.http.post<Pedidos>(`${this.pedidoURL}`, pedidos ,this.token)
   }
 
   putCompras(pedidos: Pedidos): Observable<Pedidos>{
-    return this.http.put<Pedidos>("https://localholst:8080/pedidos", pedidos ,this.token)
+    return this.http.put<Pedidos>(`${this.pedidoURL}`, pedidos ,this.token)
   }
 
   deleteCompras(id: number): Observable<Pedidos>{
-    return this.http.delete<Pedidos>(`https://localholst:8080/pedidos/${id}`, this.token)
+    return this.http.delete<Pedidos>(`${this.pedidoURL}/${id}`, this.token)
   }
 }
