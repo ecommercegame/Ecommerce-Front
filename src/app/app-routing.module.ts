@@ -28,6 +28,7 @@ const routes: Routes = [
   {path: 'busca-produto/:nome', component: BuscaProdutoComponent},
   {path: 'usuario-edit/:id', component: UsuarioEditComponent},
   {path: 'produtos-edit/:id', component: ProdutosEditComponent},
+  //{path: 'produtos', component: ProdutosComponent},
   {path: 'template', component: TemplateComponent}
 ];
 
