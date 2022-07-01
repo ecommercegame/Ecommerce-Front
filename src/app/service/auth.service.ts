@@ -42,10 +42,13 @@ export class AuthService {
 
   atualizar(user: User): Observable<User> {
     return this.http.put<User>(`${this.userUrl}/atualizar/`, user, this.token)
+
   }
+
 
   getByIdUsuario(id: number): Observable<User>{
     return this.http.get<User>(`${this.userUrl}/${id}`, this.token)
+
   }
 
   deletarUsuario(id: number): Observable<User>{
