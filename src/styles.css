@@ -140,9 +140,15 @@ footer{
 @media(max-width: 1301px ){
     .card{
         width: 100%;
+        align-items: center;
+        justify-content: center;
     }
     card-body{
         width: 100%;
+        align-items: center;
+    }
+    .card-group{
+     justify-content: space-around;
     }
 }
 /*Equipe*/
