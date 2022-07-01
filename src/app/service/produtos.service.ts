@@ -9,15 +9,14 @@ import { Produtos } from '../model/Produtos';
   providedIn: 'root'
 })
 export class ProdutosService {
-  produtosURL: string = 'http://localhost:8080/produtos'
 
   constructor(private http:HttpClient) { }
 
-
+  
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token),
   };
-
+  
   refreshToken(){
     this.token = {
       headers: new HttpHeaders().set('Authorization', environment.token)
@@ -25,36 +24,33 @@ export class ProdutosService {
   }
 
   getAllProdutos():Observable<Produtos[]>{
-    return this.http.get<Produtos[]>(`${this.produtosURL}`)
+    return this.http.get<Produtos[]>('https://eccomerce-pi.herokuapp.com/produtos')
 
   }
 
   getProdutoById(id: number): Observable<Produtos> {
-    return this.http.get<Produtos>(`${this.produtosURL}/${id}`)
+    return this.http.get<Produtos>(`https://eccomerce-pi.herokuapp.com/produtos/${id}`)
   }
 
   getProdutosByNome(nome: string): Observable<Produtos[]>{
-    return this.http.get<Produtos[]>(`${this.produtosURL}/nome/${nome}`)
+    return this.http.get<Produtos[]>(`https://eccomerce-pi.herokuapp.com/produtos/nome/${nome}`)
   }
 
   getProdutosByCategoria(categorias: string): Observable<Produtos[]>{
-    return this.http.get<Produtos[]>(`${this.produtosURL}/categorias/${categorias}`)
-
+    return this.http.get<Produtos[]>(`https://eccomerce-pi.herokuapp.com/produtos/categorias/${categorias}`)
   }
 
 
   postProdutos(produtos:Produtos):Observable<Produtos>{
-    return this.http.post<Produtos>(`${this.produtosURL}/cadastrar`, produtos, this.token)
+    return this.http.post<Produtos>('https://eccomerce-pi.herokuapp.com/produtos/cadastrar', produtos, this.token)
   }
 
   putProdutos(produtos: Produtos):Observable<Produtos>{
-    return this.http.put<Produtos>(`${this.produtosURL}/atualizar`, produtos, this.token)
-
+    return this.http.put<Produtos>('https://eccomerce-pi.herokuapp.com/produtos/atualizar', produtos, this.token)
   }
 
 
   deletarProduto(id: number): Observable<Produtos>{
-    return this.http.delete<Produtos>(`${this.produtosURL}/${id}`, this.token)
-
+    return this.http.delete<Produtos>(`https://eccomerce-pi.herokuapp.com/produtos/${id}`, this.token)
   }
 }
