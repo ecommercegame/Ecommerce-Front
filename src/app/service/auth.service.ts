@@ -9,8 +9,8 @@ import { UserLogin } from '../model/UserLogin';
   providedIn: 'root'
 })
 export class AuthService {
-  private userUrl: string = 'https://eccomerce-pi.herokuapp.com/usuarios'
-
+  private userUrl: string = 'https://eccomerce-pi.herokuapp.com/usuarios';
+ 
   constructor(
     private http: HttpClient
 
@@ -19,43 +19,36 @@ export class AuthService {
   token = {
     headers: new HttpHeaders().set("Authorization", environment.token),
   };
-
+ 
 
   buscarTodos(): Observable<UserLogin[]>{
     return this.http.get<UserLogin[]>(this.userUrl)
   }
-
-  // buscar(id: number): Observable<UserLogin>{
-  //   return this.http.get<UserLogin>(`${this.userUrl}/${id}`)
-  // }
-
+ 
   login(userLogin: UserLogin): Observable<UserLogin> {
 
-    return this.http.post<UserLogin>(`${this.userUrl}/logar`, userLogin)
+    return this.http.post<UserLogin>('https://eccomerce-pi.herokuapp.com/usuarios/logar', userLogin)
 
   }
 
   cadastrar(user: User): Observable<User> {
-
-    return this.http.post<User>(`${this.userUrl}/cadastrar`, user)
-  }
+    
+    return this.http.post<User>('https://eccomerce-pi.herokuapp.com/usuarios/cadastrar', user)
+  } 
 
   atualizar(user: User): Observable<User> {
-    return this.http.put<User>(`${this.userUrl}/atualizar/`, user, this.token)
-
+    return this.http.put<User>('https://eccomerce-pi.herokuapp.com/usuarios/atualizar/', user, this.token)
   }
-
-
+ 
   getByIdUsuario(id: number): Observable<User>{
-    return this.http.get<User>(`${this.userUrl}/${id}`, this.token)
-
+    return this.http.get<User>(`https://eccomerce-pi.herokuapp.com/usuarios/${id}`, this.token)
   }
-
+  
   deletarUsuario(id: number): Observable<User>{
-    return this.http.delete<User>(`${this.userUrl}/${id}`, this.token)
+    return this.http.delete<User>(`https://eccomerce-pi.herokuapp.com/usuarios/${id}`, this.token)
   }
 
-
+  
   logado(){
     let ok: boolean = false
 
@@ -75,19 +68,12 @@ export class AuthService {
     return id
   }
 
-  // admin(){
-  //   let ok: boolean = false
-  //   if(environment.tipo == 'adm'){
-  //     ok = true
-  //   }
-  //   return ok
-  // }
 
   refreshToken(){
     this.token={
       headers: new HttpHeaders().set("Authorization", environment.token),
     };
   }
-
+ 
 }
 
