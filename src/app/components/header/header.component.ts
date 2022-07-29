@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
+ 
   @Input() isHeader: boolean;
 
   nomeProcurado: string
@@ -59,7 +60,7 @@ export class HeaderComponent implements OnInit {
 
   adm(){
     if (environment.nome == "Admin"){
-      this.router.navigate(["/jogos-cadastro"])
+      this.router.navigate(["/adm"])
     }
     else{    
       

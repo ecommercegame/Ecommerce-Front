@@ -16,7 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SobreComponent } from './components/sobre/sobre.component';
 import { JogosAppComponent } from './jogos-app/jogos-app.component';
@@ -28,6 +28,11 @@ import { BuscaProdutoComponent } from './components/busca-produto/busca-produto.
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { ProdutosEditComponent } from './edit/produtos-edit/produtos-edit.component';
 import { TemplateComponent } from './components/template/template.component';
+import { AdmComponent } from './adm/adm.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
+
+
 
 
 
@@ -56,6 +61,8 @@ import { TemplateComponent } from './components/template/template.component';
     UsuarioEditComponent,
     ProdutosEditComponent,
     TemplateComponent,
+    AdmComponent,
+    UsuariosComponent,
     
   ],
   imports: [
@@ -63,9 +70,9 @@ import { TemplateComponent } from './components/template/template.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ModalModule.forRoot(),
     OrderModule,
-
   ],
   providers: [{
     provide:  LocationStrategy,

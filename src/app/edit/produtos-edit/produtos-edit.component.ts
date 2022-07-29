@@ -16,7 +16,6 @@ export class ProdutosEditComponent implements OnInit {
   produtos:Produtos = new Produtos()
   idProduto:number
   categoria: string;
-  equipamentos: string;
 
   constructor(
     private router: Router,
@@ -41,9 +40,6 @@ export class ProdutosEditComponent implements OnInit {
     this.categoria = event.target.value
   }
 
-  equipamentosProd(event: any){
-    this.equipamentos = event.target.value
-  }
 
   findByIdProduto(id:number){
     this.produtoService.getProdutoById(id).subscribe((resp:Produtos)=>{
