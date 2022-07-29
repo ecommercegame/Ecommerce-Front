@@ -9,7 +9,7 @@ import { UserLogin } from '../model/UserLogin';
   providedIn: 'root'
 })
 export class AuthService {
-  private userUrl: string = 'https://eccomerce-pi.herokuapp.com/usuarios';
+  private userUrl: string = 'https://ecommerce-aw.herokuapp.com/usuarios';
  
   constructor(
     private http: HttpClient
@@ -20,32 +20,40 @@ export class AuthService {
     headers: new HttpHeaders().set("Authorization", environment.token),
   };
  
+  getAllUsuarios():Observable<User[]>{
+    return this.http.get<User[]>('https://ecommerce-aw.herokuapp.com/usuarios/all')
+
+  }
 
   buscarTodos(): Observable<UserLogin[]>{
-    return this.http.get<UserLogin[]>(this.userUrl)
+    return this.http.get<UserLogin[]>(`${this.userUrl}/all`)
   }
  
   login(userLogin: UserLogin): Observable<UserLogin> {
 
-    return this.http.post<UserLogin>('https://eccomerce-pi.herokuapp.com/usuarios/logar', userLogin)
+    return this.http.post<UserLogin>('https://ecommerce-aw.herokuapp.com/usuarios/logar', userLogin)
 
   }
 
   cadastrar(user: User): Observable<User> {
     
-    return this.http.post<User>('https://eccomerce-pi.herokuapp.com/usuarios/cadastrar', user)
+    return this.http.post<User>('https://ecommerce-aw.herokuapp.com/usuarios/cadastrar', user)
   } 
 
   atualizar(user: User): Observable<User> {
-    return this.http.put<User>('https://eccomerce-pi.herokuapp.com/usuarios/atualizar/', user, this.token)
+    return this.http.put<User>('https://ecommerce-aw.herokuapp.com/usuarios/atualizar/', user, this.token)
   }
+
  
+
   getByIdUsuario(id: number): Observable<User>{
-    return this.http.get<User>(`https://eccomerce-pi.herokuapp.com/usuarios/${id}`, this.token)
+    return this.http.get<User>(`https://ecommerce-aw.herokuapp.com/usuarios/${id}`, this.token)
   }
+
+
   
   deletarUsuario(id: number): Observable<User>{
-    return this.http.delete<User>(`https://eccomerce-pi.herokuapp.com/usuarios/${id}`, this.token)
+    return this.http.delete<User>(`https://ecommerce-aw.herokuapp.com/usuarios/${id}`, this.token)
   }
 
   

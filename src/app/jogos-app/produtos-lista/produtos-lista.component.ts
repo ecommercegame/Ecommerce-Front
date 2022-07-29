@@ -36,10 +36,6 @@ export class ProdutosListaComponent implements OnInit {
   ngOnInit(){
     window.scroll(0,0)
 
-    // if(environment.token == ""){
-    //   alert("Sua seção expirou, faça o login novamente.")
-    //   this.router.navigate(["/login"])
-    // }
 
     this.produtoService.refreshToken()
     this.idProd = this.route.snapshot.params['id']
@@ -52,7 +48,6 @@ export class ProdutosListaComponent implements OnInit {
     this.produtoService.getProdutoById(this.idProd).subscribe((resp: Produtos) =>{
       this.produtos = resp
 
-      // this.idCat = this.produto.categoria.id
 
     })
   }
@@ -88,7 +83,6 @@ export class ProdutosListaComponent implements OnInit {
       title: 'Produto adicionado ao carrinho!',
       icon: 'success'
   })
-    //alert("Produto adicionado ao carrinho!")
   }
 
 

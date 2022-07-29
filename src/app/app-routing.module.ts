@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdmComponent } from './adm/adm.component';
 import { BlogComponent } from './blog/blog.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { BuscaProdutoComponent } from './components/busca-produto/busca-produto.component';
@@ -13,6 +14,7 @@ import { ProdutosListaComponent } from './jogos-app/produtos-lista/produtos-list
 import { LoginComponent } from './login/login.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch:'full'},
@@ -29,7 +31,9 @@ const routes: Routes = [
   {path: 'usuario-edit/:id', component: UsuarioEditComponent},
   {path: 'produtos-edit/:id', component: ProdutosEditComponent},
   //{path: 'produtos', component: ProdutosComponent},
-  {path: 'template', component: TemplateComponent}
+  {path: 'template', component: TemplateComponent},
+  {path: 'adm', component: AdmComponent},
+  {path: 'usuarios', component: UsuariosComponent},
 ];
 
 @NgModule({
